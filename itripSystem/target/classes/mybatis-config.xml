@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration   
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 按需加载对象属性（即访问对象中一个懒对象属性，不会加载对象中其他的懒对象属性 -->
+		<setting name="lazyLoadingEnabled" value="false" />
+	</settings>
+	<typeAliases>
+		<!-- mybatis自动扫描指定包下面的javabean, 并默认设置 javabean 的非限定类名来作为它的别名,方便在mapper配置文件中使用 -->
+		<package name="cn.itrip.pojo" />
+	</typeAliases>
+</configuration>  

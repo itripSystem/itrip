@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itrip.dao.ItripHotelTempStoreMapper" >
+  <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripHotelTempStore" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="hotelId" property="hotelid" jdbcType="INTEGER" />
+    <result column="roomId" property="roomid" jdbcType="BIGINT" />
+    <result column="recordDate" property="recorddate" jdbcType="TIMESTAMP" />
+    <result column="store" property="store" jdbcType="INTEGER" />
+    <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, hotelId, roomId, recordDate, store, creationDate, createdBy, modifyDate, modifiedBy
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from itrip_hotel_temp_store
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from itrip_hotel_temp_store
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.itrip.pojo.ItripHotelTempStore" >
+    insert into itrip_hotel_temp_store (id, hotelId, roomId, 
+      recordDate, store, creationDate, 
+      createdBy, modifyDate, modifiedBy
+      )
+    values (#{record.id,jdbcType=BIGINT}, #{record.hotelid,jdbcType=INTEGER}, #{record.roomid,jdbcType=BIGINT}, 
+      #{record.recorddate,jdbcType=TIMESTAMP}, #{record.store,jdbcType=INTEGER}, #{record.creationdate,jdbcType=TIMESTAMP}, 
+      #{record.createdby,jdbcType=BIGINT}, #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripHotelTempStore" >
+    insert into itrip_hotel_temp_store
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="record.id != null" >
+        id,
+      </if>
+      <if test="record.hotelid != null" >
+        hotelId,
+      </if>
+      <if test="record.roomid != null" >
+        roomId,
+      </if>
+      <if test="record.recorddate != null" >
+        recordDate,
+      </if>
+      <if test="record.store != null" >
+        store,
+      </if>
+      <if test="record.creationdate != null" >
+        creationDate,
+      </if>
+      <if test="record.createdby != null" >
+        createdBy,
+      </if>
+      <if test="record.modifydate != null" >
+        modifyDate,
+      </if>
+      <if test="record.modifiedby != null" >
+        modifiedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="record.id != null" >
+        #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.hotelid != null" >
+        #{record.hotelid,jdbcType=INTEGER},
+      </if>
+      <if test="record.roomid != null" >
+        #{record.roomid,jdbcType=BIGINT},
+      </if>
+      <if test="record.recorddate != null" >
+        #{record.recorddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.store != null" >
+        #{record.store,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationdate != null" >
+        #{record.creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdby != null" >
+        #{record.createdby,jdbcType=BIGINT},
+      </if>
+      <if test="record.modifydate != null" >
+        #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedby != null" >
+        #{record.modifiedby,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripHotelTempStore" >
+    update itrip_hotel_temp_store
+    <set >
+      <if test="record.hotelid != null" >
+        hotelId = #{record.hotelid,jdbcType=INTEGER},
+      </if>
+      <if test="record.roomid != null" >
+        roomId = #{record.roomid,jdbcType=BIGINT},
+      </if>
+      <if test="record.recorddate != null" >
+        recordDate = #{record.recorddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.store != null" >
+        store = #{record.store,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationdate != null" >
+        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdby != null" >
+        createdBy = #{record.createdby,jdbcType=BIGINT},
+      </if>
+      <if test="record.modifydate != null" >
+        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedby != null" >
+        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripHotelTempStore" >
+    update itrip_hotel_temp_store
+    set hotelId = #{record.hotelid,jdbcType=INTEGER},
+      roomId = #{record.roomid,jdbcType=BIGINT},
+      recordDate = #{record.recorddate,jdbcType=TIMESTAMP},
+      store = #{record.store,jdbcType=INTEGER},
+      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{record.createdby,jdbcType=BIGINT},
+      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+</mapper>

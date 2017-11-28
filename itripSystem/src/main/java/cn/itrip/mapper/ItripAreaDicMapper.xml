@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itrip.dao.ItripAreaDicMapper" >
+  <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripAreaDic" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="areaNo" property="areano" jdbcType="VARCHAR" />
+    <result column="parent" property="parent" jdbcType="BIGINT" />
+    <result column="isActivated" property="isactivated" jdbcType="INTEGER" />
+    <result column="isTradingArea" property="istradingarea" jdbcType="INTEGER" />
+    <result column="isHot" property="ishot" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="isChina" property="ischina" jdbcType="INTEGER" />
+    <result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
+    <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, areaNo, parent, isActivated, isTradingArea, isHot, level, isChina, pinyin, 
+    creationDate, createdBy, modifyDate, modifiedBy
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from itrip_area_dic
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from itrip_area_dic
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.itrip.pojo.ItripAreaDic" >
+    insert into itrip_area_dic (id, name, areaNo, 
+      parent, isActivated, isTradingArea, 
+      isHot, level, isChina, 
+      pinyin, creationDate, createdBy, 
+      modifyDate, modifiedBy)
+    values (#{record.id,jdbcType=BIGINT}, #{record.name,jdbcType=VARCHAR}, #{record.areano,jdbcType=VARCHAR}, 
+      #{record.parent,jdbcType=BIGINT}, #{record.isactivated,jdbcType=INTEGER}, #{record.istradingarea,jdbcType=INTEGER}, 
+      #{record.ishot,jdbcType=INTEGER}, #{record.level,jdbcType=INTEGER}, #{record.ischina,jdbcType=INTEGER}, 
+      #{record.pinyin,jdbcType=VARCHAR}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=BIGINT}, 
+      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripAreaDic" >
+    insert into itrip_area_dic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="record.id != null" >
+        id,
+      </if>
+      <if test="record.name != null" >
+        name,
+      </if>
+      <if test="record.areano != null" >
+        areaNo,
+      </if>
+      <if test="record.parent != null" >
+        parent,
+      </if>
+      <if test="record.isactivated != null" >
+        isActivated,
+      </if>
+      <if test="record.istradingarea != null" >
+        isTradingArea,
+      </if>
+      <if test="record.ishot != null" >
+        isHot,
+      </if>
+      <if test="record.level != null" >
+        level,
+      </if>
+      <if test="record.ischina != null" >
+        isChina,
+      </if>
+      <if test="record.pinyin != null" >
+        pinyin,
+      </if>
+      <if test="record.creationdate != null" >
+        creationDate,
+      </if>
+      <if test="record.createdby != null" >
+        createdBy,
+      </if>
+      <if test="record.modifydate != null" >
+        modifyDate,
+      </if>
+      <if test="record.modifiedby != null" >
+        modifiedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="record.id != null" >
+        #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null" >
+        #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areano != null" >
+        #{record.areano,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parent != null" >
+        #{record.parent,jdbcType=BIGINT},
+      </if>
+      <if test="record.isactivated != null" >
+        #{record.isactivated,jdbcType=INTEGER},
+      </if>
+      <if test="record.istradingarea != null" >
+        #{record.istradingarea,jdbcType=INTEGER},
+      </if>
+      <if test="record.ishot != null" >
+        #{record.ishot,jdbcType=INTEGER},
+      </if>
+      <if test="record.level != null" >
+        #{record.level,jdbcType=INTEGER},
+      </if>
+      <if test="record.ischina != null" >
+        #{record.ischina,jdbcType=INTEGER},
+      </if>
+      <if test="record.pinyin != null" >
+        #{record.pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creationdate != null" >
+        #{record.creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdby != null" >
+        #{record.createdby,jdbcType=BIGINT},
+      </if>
+      <if test="record.modifydate != null" >
+        #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedby != null" >
+        #{record.modifiedby,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripAreaDic" >
+    update itrip_area_dic
+    <set >
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areano != null" >
+        areaNo = #{record.areano,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parent != null" >
+        parent = #{record.parent,jdbcType=BIGINT},
+      </if>
+      <if test="record.isactivated != null" >
+        isActivated = #{record.isactivated,jdbcType=INTEGER},
+      </if>
+      <if test="record.istradingarea != null" >
+        isTradingArea = #{record.istradingarea,jdbcType=INTEGER},
+      </if>
+      <if test="record.ishot != null" >
+        isHot = #{record.ishot,jdbcType=INTEGER},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level,jdbcType=INTEGER},
+      </if>
+      <if test="record.ischina != null" >
+        isChina = #{record.ischina,jdbcType=INTEGER},
+      </if>
+      <if test="record.pinyin != null" >
+        pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creationdate != null" >
+        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdby != null" >
+        createdBy = #{record.createdby,jdbcType=BIGINT},
+      </if>
+      <if test="record.modifydate != null" >
+        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedby != null" >
+        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripAreaDic" >
+    update itrip_area_dic
+    set name = #{record.name,jdbcType=VARCHAR},
+      areaNo = #{record.areano,jdbcType=VARCHAR},
+      parent = #{record.parent,jdbcType=BIGINT},
+      isActivated = #{record.isactivated,jdbcType=INTEGER},
+      isTradingArea = #{record.istradingarea,jdbcType=INTEGER},
+      isHot = #{record.ishot,jdbcType=INTEGER},
+      level = #{record.level,jdbcType=INTEGER},
+      isChina = #{record.ischina,jdbcType=INTEGER},
+      pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{record.createdby,jdbcType=BIGINT},
+      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+</mapper>
