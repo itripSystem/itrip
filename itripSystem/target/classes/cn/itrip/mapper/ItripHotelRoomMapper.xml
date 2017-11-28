@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itrip.dao.ItripHotelRoomMapper" >
+  <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripHotelRoom" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="hotelId" property="hotelid" jdbcType="BIGINT" />
+    <result column="roomTitle" property="roomtitle" jdbcType="VARCHAR" />
+    <result column="roomPrice" property="roomprice" jdbcType="DECIMAL" />
+    <result column="roomBedTypeId" property="roombedtypeid" jdbcType="BIGINT" />
+    <result column="isHavingBreakfast" property="ishavingbreakfast" jdbcType="INTEGER" />
+    <result column="payType" property="paytype" jdbcType="INTEGER" />
+    <result column="satisfaction" property="satisfaction" jdbcType="DECIMAL" />
+    <result column="isBook" property="isbook" jdbcType="INTEGER" />
+    <result column="isCancel" property="iscancel" jdbcType="INTEGER" />
+    <result column="isTimelyResponse" property="istimelyresponse" jdbcType="INTEGER" />
+    <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, hotelId, roomTitle, roomPrice, roomBedTypeId, isHavingBreakfast, payType, satisfaction, 
+    isBook, isCancel, isTimelyResponse, creationDate, createdBy, modifyDate, modifiedBy
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from itrip_hotel_room
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from itrip_hotel_room
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.itrip.pojo.ItripHotelRoom" >
+    insert into itrip_hotel_room (id, hotelId, roomTitle, 
+      roomPrice, roomBedTypeId, 
+      isHavingBreakfast, payType, 
+      satisfaction, isBook, isCancel, 
+      isTimelyResponse, creationDate, 
+      createdBy, modifyDate, modifiedBy
+      )
+    values (#{record.id,jdbcType=BIGINT}, #{record.hotelid,jdbcType=BIGINT}, #{record.roomtitle,jdbcType=VARCHAR}, 
+      #{record.roomprice,jdbcType=DECIMAL}, #{record.roombedtypeid,jdbcType=BIGINT}, 
+      #{record.ishavingbreakfast,jdbcType=INTEGER}, #{record.paytype,jdbcType=INTEGER}, 
+      #{record.satisfaction,jdbcType=DECIMAL}, #{record.isbook,jdbcType=INTEGER}, #{record.iscancel,jdbcType=INTEGER}, 
+      #{record.istimelyresponse,jdbcType=INTEGER}, #{record.creationdate,jdbcType=TIMESTAMP}, 
+      #{record.createdby,jdbcType=BIGINT}, #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripHotelRoom" >
+    insert into itrip_hotel_room
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="record.id != null" >
+        id,
+      </if>
+      <if test="record.hotelid != null" >
+        hotelId,
+      </if>
+      <if test="record.roomtitle != null" >
+        roomTitle,
+      </if>
+      <if test="record.roomprice != null" >
+        roomPrice,
+      </if>
+      <if test="record.roombedtypeid != null" >
+        roomBedTypeId,
+      </if>
+      <if test="record.ishavingbreakfast != null" >
+        isHavingBreakfast,
+      </if>
+      <if test="record.paytype != null" >
+        payType,
+      </if>
+      <if test="record.satisfaction != null" >
+        satisfaction,
+      </if>
+      <if test="record.isbook != null" >
+        isBook,
+      </if>
+      <if test="record.iscancel != null" >
+        isCancel,
+      </if>
+      <if test="record.istimelyresponse != null" >
+        isTimelyResponse,
+      </if>
+      <if test="record.creationdate != null" >
+        creationDate,
+      </if>
+      <if test="record.createdby != null" >
+        createdBy,
+      </if>
+      <if test="record.modifydate != null" >
+        modifyDate,
+      </if>
+      <if test="record.modifiedby != null" >
+        modifiedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="record.id != null" >
+        #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.hotelid != null" >
+        #{record.hotelid,jdbcType=BIGINT},
+      </if>
+      <if test="record.roomtitle != null" >
+        #{record.roomtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomprice != null" >
+        #{record.roomprice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.roombedtypeid != null" >
+        #{record.roombedtypeid,jdbcType=BIGINT},
+      </if>
+      <if test="record.ishavingbreakfast != null" >
+        #{record.ishavingbreakfast,jdbcType=INTEGER},
+      </if>
+      <if test="record.paytype != null" >
+        #{record.paytype,jdbcType=INTEGER},
+      </if>
+      <if test="record.satisfaction != null" >
+        #{record.satisfaction,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isbook != null" >
+        #{record.isbook,jdbcType=INTEGER},
+      </if>
+      <if test="record.iscancel != null" >
+        #{record.iscancel,jdbcType=INTEGER},
+      </if>
+      <if test="record.istimelyresponse != null" >
+        #{record.istimelyresponse,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationdate != null" >
+        #{record.creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdby != null" >
+        #{record.createdby,jdbcType=BIGINT},
+      </if>
+      <if test="record.modifydate != null" >
+        #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedby != null" >
+        #{record.modifiedby,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripHotelRoom" >
+    update itrip_hotel_room
+    <set >
+      <if test="record.hotelid != null" >
+        hotelId = #{record.hotelid,jdbcType=BIGINT},
+      </if>
+      <if test="record.roomtitle != null" >
+        roomTitle = #{record.roomtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomprice != null" >
+        roomPrice = #{record.roomprice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.roombedtypeid != null" >
+        roomBedTypeId = #{record.roombedtypeid,jdbcType=BIGINT},
+      </if>
+      <if test="record.ishavingbreakfast != null" >
+        isHavingBreakfast = #{record.ishavingbreakfast,jdbcType=INTEGER},
+      </if>
+      <if test="record.paytype != null" >
+        payType = #{record.paytype,jdbcType=INTEGER},
+      </if>
+      <if test="record.satisfaction != null" >
+        satisfaction = #{record.satisfaction,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isbook != null" >
+        isBook = #{record.isbook,jdbcType=INTEGER},
+      </if>
+      <if test="record.iscancel != null" >
+        isCancel = #{record.iscancel,jdbcType=INTEGER},
+      </if>
+      <if test="record.istimelyresponse != null" >
+        isTimelyResponse = #{record.istimelyresponse,jdbcType=INTEGER},
+      </if>
+      <if test="record.creationdate != null" >
+        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdby != null" >
+        createdBy = #{record.createdby,jdbcType=BIGINT},
+      </if>
+      <if test="record.modifydate != null" >
+        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedby != null" >
+        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripHotelRoom" >
+    update itrip_hotel_room
+    set hotelId = #{record.hotelid,jdbcType=BIGINT},
+      roomTitle = #{record.roomtitle,jdbcType=VARCHAR},
+      roomPrice = #{record.roomprice,jdbcType=DECIMAL},
+      roomBedTypeId = #{record.roombedtypeid,jdbcType=BIGINT},
+      isHavingBreakfast = #{record.ishavingbreakfast,jdbcType=INTEGER},
+      payType = #{record.paytype,jdbcType=INTEGER},
+      satisfaction = #{record.satisfaction,jdbcType=DECIMAL},
+      isBook = #{record.isbook,jdbcType=INTEGER},
+      isCancel = #{record.iscancel,jdbcType=INTEGER},
+      isTimelyResponse = #{record.istimelyresponse,jdbcType=INTEGER},
+      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{record.createdby,jdbcType=BIGINT},
+      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+</mapper>
