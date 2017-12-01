@@ -16,13 +16,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
   </head>
   
   <body>
-    	首页 <br>
+    	<div>
+    		<form action="userMain/doLog" method="post">
+    			登录名<input type="text" name="userCode">
+    			密 码<input type="text" name="userPassWorde">
+    			<input type="submit" value="en ">
+    		</form>
+    	</div>
   </body>
 </html>

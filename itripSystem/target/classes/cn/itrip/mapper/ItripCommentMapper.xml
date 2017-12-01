@@ -2,288 +2,258 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripCommentMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripComment" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="hotelId" property="hotelid" jdbcType="BIGINT" />
-    <result column="productId" property="productid" jdbcType="BIGINT" />
-    <result column="orderId" property="orderid" jdbcType="BIGINT" />
-    <result column="productType" property="producttype" jdbcType="INTEGER" />
-    <result column="userId" property="userid" jdbcType="BIGINT" />
-    <result column="isHavingImg" property="ishavingimg" jdbcType="INTEGER" />
-    <result column="positionScore" property="positionscore" jdbcType="INTEGER" />
-    <result column="facilitiesScore" property="facilitiesscore" jdbcType="INTEGER" />
-    <result column="serviceScore" property="servicescore" jdbcType="INTEGER" />
-    <result column="hygieneScore" property="hygienescore" jdbcType="INTEGER" />
-    <result column="score" property="score" jdbcType="INTEGER" />
-    <result column="tripMode" property="tripmode" jdbcType="BIGINT" />
-    <result column="isOk" property="isok" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="hotelId" property="hotelid" jdbcType="DECIMAL" />
+    <result column="productId" property="productid" jdbcType="DECIMAL" />
+    <result column="orderId" property="orderid" jdbcType="DECIMAL" />
+    <result column="productType" property="producttype" jdbcType="DECIMAL" />
+    <result column="content" property="content" jdbcType="OTHER" />
+    <result column="userId" property="userid" jdbcType="DECIMAL" />
+    <result column="isHavingImg" property="ishavingimg" jdbcType="DECIMAL" />
+    <result column="positionScore" property="positionscore" jdbcType="DECIMAL" />
+    <result column="facilitiesScore" property="facilitiesscore" jdbcType="DECIMAL" />
+    <result column="serviceScore" property="servicescore" jdbcType="DECIMAL" />
+    <result column="hygieneScore" property="hygienescore" jdbcType="DECIMAL" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="tripMode" property="tripmode" jdbcType="DECIMAL" />
+    <result column="isOk" property="isok" jdbcType="DECIMAL" />
     <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdby" jdbcType="DECIMAL" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
-    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="cn.itrip.pojo.ItripComment" extends="BaseResultMap" >
-    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, hotelId, productId, orderId, productType, userId, isHavingImg, positionScore, 
-    facilitiesScore, serviceScore, hygieneScore, score, tripMode, isOk, creationDate, 
-    createdBy, modifyDate, modifiedBy
+    "id", "hotelId", "productId", "orderId", "productType", "content", "userId", "isHavingImg", 
+    "positionScore", "facilitiesScore", "serviceScore", "hygieneScore", "score", "tripMode", 
+    "isOk", "creationDate", "createdBy", "modifyDate", "modifiedBy"
   </sql>
-  <sql id="Blob_Column_List" >
-    content
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from itrip_comment
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_comment"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_comment
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_comment"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripComment" >
-    insert into itrip_comment (id, hotelId, productId, 
-      orderId, productType, userId, 
-      isHavingImg, positionScore, 
-      facilitiesScore, serviceScore, 
-      hygieneScore, score, tripMode, 
-      isOk, creationDate, createdBy, 
-      modifyDate, modifiedBy, 
-      content)
-    values (#{record.id,jdbcType=BIGINT}, #{record.hotelid,jdbcType=BIGINT}, #{record.productid,jdbcType=BIGINT}, 
-      #{record.orderid,jdbcType=BIGINT}, #{record.producttype,jdbcType=INTEGER}, #{record.userid,jdbcType=BIGINT}, 
-      #{record.ishavingimg,jdbcType=INTEGER}, #{record.positionscore,jdbcType=INTEGER}, 
-      #{record.facilitiesscore,jdbcType=INTEGER}, #{record.servicescore,jdbcType=INTEGER}, 
-      #{record.hygienescore,jdbcType=INTEGER}, #{record.score,jdbcType=INTEGER}, #{record.tripmode,jdbcType=BIGINT}, 
-      #{record.isok,jdbcType=INTEGER}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=BIGINT}, 
-      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT}, 
-      #{record.content,jdbcType=LONGVARCHAR})
+    insert into "itrip_comment" ("id", "hotelId", "productId", 
+      "orderId", "productType", "content", 
+      "userId", "isHavingImg", "positionScore", 
+      "facilitiesScore", "serviceScore", 
+      "hygieneScore", "score", "tripMode", 
+      "isOk", "creationDate", "createdBy", 
+      "modifyDate", "modifiedBy")
+    values (#{record.id,jdbcType=DECIMAL}, #{record.hotelid,jdbcType=DECIMAL}, #{record.productid,jdbcType=DECIMAL}, 
+      #{record.orderid,jdbcType=DECIMAL}, #{record.producttype,jdbcType=DECIMAL}, #{record.content,jdbcType=OTHER}, 
+      #{record.userid,jdbcType=DECIMAL}, #{record.ishavingimg,jdbcType=DECIMAL}, #{record.positionscore,jdbcType=DECIMAL}, 
+      #{record.facilitiesscore,jdbcType=DECIMAL}, #{record.servicescore,jdbcType=DECIMAL}, 
+      #{record.hygienescore,jdbcType=DECIMAL}, #{record.score,jdbcType=DECIMAL}, #{record.tripmode,jdbcType=DECIMAL}, 
+      #{record.isok,jdbcType=DECIMAL}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=DECIMAL}, 
+      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripComment" >
-    insert into itrip_comment
+    insert into "itrip_comment"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.hotelid != null" >
-        hotelId,
+        "hotelId",
       </if>
       <if test="record.productid != null" >
-        productId,
+        "productId",
       </if>
       <if test="record.orderid != null" >
-        orderId,
+        "orderId",
       </if>
       <if test="record.producttype != null" >
-        productType,
-      </if>
-      <if test="record.userid != null" >
-        userId,
-      </if>
-      <if test="record.ishavingimg != null" >
-        isHavingImg,
-      </if>
-      <if test="record.positionscore != null" >
-        positionScore,
-      </if>
-      <if test="record.facilitiesscore != null" >
-        facilitiesScore,
-      </if>
-      <if test="record.servicescore != null" >
-        serviceScore,
-      </if>
-      <if test="record.hygienescore != null" >
-        hygieneScore,
-      </if>
-      <if test="record.score != null" >
-        score,
-      </if>
-      <if test="record.tripmode != null" >
-        tripMode,
-      </if>
-      <if test="record.isok != null" >
-        isOk,
-      </if>
-      <if test="record.creationdate != null" >
-        creationDate,
-      </if>
-      <if test="record.createdby != null" >
-        createdBy,
-      </if>
-      <if test="record.modifydate != null" >
-        modifyDate,
-      </if>
-      <if test="record.modifiedby != null" >
-        modifiedBy,
+        "productType",
       </if>
       <if test="record.content != null" >
-        content,
+        "content",
+      </if>
+      <if test="record.userid != null" >
+        "userId",
+      </if>
+      <if test="record.ishavingimg != null" >
+        "isHavingImg",
+      </if>
+      <if test="record.positionscore != null" >
+        "positionScore",
+      </if>
+      <if test="record.facilitiesscore != null" >
+        "facilitiesScore",
+      </if>
+      <if test="record.servicescore != null" >
+        "serviceScore",
+      </if>
+      <if test="record.hygienescore != null" >
+        "hygieneScore",
+      </if>
+      <if test="record.score != null" >
+        "score",
+      </if>
+      <if test="record.tripmode != null" >
+        "tripMode",
+      </if>
+      <if test="record.isok != null" >
+        "isOk",
+      </if>
+      <if test="record.creationdate != null" >
+        "creationDate",
+      </if>
+      <if test="record.createdby != null" >
+        "createdBy",
+      </if>
+      <if test="record.modifydate != null" >
+        "modifyDate",
+      </if>
+      <if test="record.modifiedby != null" >
+        "modifiedBy",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.hotelid != null" >
-        #{record.hotelid,jdbcType=BIGINT},
+        #{record.hotelid,jdbcType=DECIMAL},
       </if>
       <if test="record.productid != null" >
-        #{record.productid,jdbcType=BIGINT},
+        #{record.productid,jdbcType=DECIMAL},
       </if>
       <if test="record.orderid != null" >
-        #{record.orderid,jdbcType=BIGINT},
+        #{record.orderid,jdbcType=DECIMAL},
       </if>
       <if test="record.producttype != null" >
-        #{record.producttype,jdbcType=INTEGER},
+        #{record.producttype,jdbcType=DECIMAL},
+      </if>
+      <if test="record.content != null" >
+        #{record.content,jdbcType=OTHER},
       </if>
       <if test="record.userid != null" >
-        #{record.userid,jdbcType=BIGINT},
+        #{record.userid,jdbcType=DECIMAL},
       </if>
       <if test="record.ishavingimg != null" >
-        #{record.ishavingimg,jdbcType=INTEGER},
+        #{record.ishavingimg,jdbcType=DECIMAL},
       </if>
       <if test="record.positionscore != null" >
-        #{record.positionscore,jdbcType=INTEGER},
+        #{record.positionscore,jdbcType=DECIMAL},
       </if>
       <if test="record.facilitiesscore != null" >
-        #{record.facilitiesscore,jdbcType=INTEGER},
+        #{record.facilitiesscore,jdbcType=DECIMAL},
       </if>
       <if test="record.servicescore != null" >
-        #{record.servicescore,jdbcType=INTEGER},
+        #{record.servicescore,jdbcType=DECIMAL},
       </if>
       <if test="record.hygienescore != null" >
-        #{record.hygienescore,jdbcType=INTEGER},
+        #{record.hygienescore,jdbcType=DECIMAL},
       </if>
       <if test="record.score != null" >
-        #{record.score,jdbcType=INTEGER},
+        #{record.score,jdbcType=DECIMAL},
       </if>
       <if test="record.tripmode != null" >
-        #{record.tripmode,jdbcType=BIGINT},
+        #{record.tripmode,jdbcType=DECIMAL},
       </if>
       <if test="record.isok != null" >
-        #{record.isok,jdbcType=INTEGER},
+        #{record.isok,jdbcType=DECIMAL},
       </if>
       <if test="record.creationdate != null" >
         #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        #{record.createdby,jdbcType=BIGINT},
+        #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
         #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        #{record.modifiedby,jdbcType=BIGINT},
-      </if>
-      <if test="record.content != null" >
-        #{record.content,jdbcType=LONGVARCHAR},
+        #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripComment" >
-    update itrip_comment
+    update "itrip_comment"
     <set >
       <if test="record.hotelid != null" >
-        hotelId = #{record.hotelid,jdbcType=BIGINT},
+        "hotelId" = #{record.hotelid,jdbcType=DECIMAL},
       </if>
       <if test="record.productid != null" >
-        productId = #{record.productid,jdbcType=BIGINT},
+        "productId" = #{record.productid,jdbcType=DECIMAL},
       </if>
       <if test="record.orderid != null" >
-        orderId = #{record.orderid,jdbcType=BIGINT},
+        "orderId" = #{record.orderid,jdbcType=DECIMAL},
       </if>
       <if test="record.producttype != null" >
-        productType = #{record.producttype,jdbcType=INTEGER},
-      </if>
-      <if test="record.userid != null" >
-        userId = #{record.userid,jdbcType=BIGINT},
-      </if>
-      <if test="record.ishavingimg != null" >
-        isHavingImg = #{record.ishavingimg,jdbcType=INTEGER},
-      </if>
-      <if test="record.positionscore != null" >
-        positionScore = #{record.positionscore,jdbcType=INTEGER},
-      </if>
-      <if test="record.facilitiesscore != null" >
-        facilitiesScore = #{record.facilitiesscore,jdbcType=INTEGER},
-      </if>
-      <if test="record.servicescore != null" >
-        serviceScore = #{record.servicescore,jdbcType=INTEGER},
-      </if>
-      <if test="record.hygienescore != null" >
-        hygieneScore = #{record.hygienescore,jdbcType=INTEGER},
-      </if>
-      <if test="record.score != null" >
-        score = #{record.score,jdbcType=INTEGER},
-      </if>
-      <if test="record.tripmode != null" >
-        tripMode = #{record.tripmode,jdbcType=BIGINT},
-      </if>
-      <if test="record.isok != null" >
-        isOk = #{record.isok,jdbcType=INTEGER},
-      </if>
-      <if test="record.creationdate != null" >
-        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.createdby != null" >
-        createdBy = #{record.createdby,jdbcType=BIGINT},
-      </if>
-      <if test="record.modifydate != null" >
-        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.modifiedby != null" >
-        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+        "productType" = #{record.producttype,jdbcType=DECIMAL},
       </if>
       <if test="record.content != null" >
-        content = #{record.content,jdbcType=LONGVARCHAR},
+        "content" = #{record.content,jdbcType=OTHER},
+      </if>
+      <if test="record.userid != null" >
+        "userId" = #{record.userid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ishavingimg != null" >
+        "isHavingImg" = #{record.ishavingimg,jdbcType=DECIMAL},
+      </if>
+      <if test="record.positionscore != null" >
+        "positionScore" = #{record.positionscore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.facilitiesscore != null" >
+        "facilitiesScore" = #{record.facilitiesscore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.servicescore != null" >
+        "serviceScore" = #{record.servicescore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.hygienescore != null" >
+        "hygieneScore" = #{record.hygienescore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.score != null" >
+        "score" = #{record.score,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tripmode != null" >
+        "tripMode" = #{record.tripmode,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isok != null" >
+        "isOk" = #{record.isok,jdbcType=DECIMAL},
+      </if>
+      <if test="record.creationdate != null" >
+        "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdby != null" >
+        "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      </if>
+      <if test="record.modifydate != null" >
+        "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedby != null" >
+        "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.itrip.pojo.ItripComment" >
-    update itrip_comment
-    set hotelId = #{record.hotelid,jdbcType=BIGINT},
-      productId = #{record.productid,jdbcType=BIGINT},
-      orderId = #{record.orderid,jdbcType=BIGINT},
-      productType = #{record.producttype,jdbcType=INTEGER},
-      userId = #{record.userid,jdbcType=BIGINT},
-      isHavingImg = #{record.ishavingimg,jdbcType=INTEGER},
-      positionScore = #{record.positionscore,jdbcType=INTEGER},
-      facilitiesScore = #{record.facilitiesscore,jdbcType=INTEGER},
-      serviceScore = #{record.servicescore,jdbcType=INTEGER},
-      hygieneScore = #{record.hygienescore,jdbcType=INTEGER},
-      score = #{record.score,jdbcType=INTEGER},
-      tripMode = #{record.tripmode,jdbcType=BIGINT},
-      isOk = #{record.isok,jdbcType=INTEGER},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
-      content = #{record.content,jdbcType=LONGVARCHAR}
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripComment" >
-    update itrip_comment
-    set hotelId = #{record.hotelid,jdbcType=BIGINT},
-      productId = #{record.productid,jdbcType=BIGINT},
-      orderId = #{record.orderid,jdbcType=BIGINT},
-      productType = #{record.producttype,jdbcType=INTEGER},
-      userId = #{record.userid,jdbcType=BIGINT},
-      isHavingImg = #{record.ishavingimg,jdbcType=INTEGER},
-      positionScore = #{record.positionscore,jdbcType=INTEGER},
-      facilitiesScore = #{record.facilitiesscore,jdbcType=INTEGER},
-      serviceScore = #{record.servicescore,jdbcType=INTEGER},
-      hygieneScore = #{record.hygienescore,jdbcType=INTEGER},
-      score = #{record.score,jdbcType=INTEGER},
-      tripMode = #{record.tripmode,jdbcType=BIGINT},
-      isOk = #{record.isok,jdbcType=INTEGER},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_comment"
+    set "hotelId" = #{record.hotelid,jdbcType=DECIMAL},
+      "productId" = #{record.productid,jdbcType=DECIMAL},
+      "orderId" = #{record.orderid,jdbcType=DECIMAL},
+      "productType" = #{record.producttype,jdbcType=DECIMAL},
+      "content" = #{record.content,jdbcType=OTHER},
+      "userId" = #{record.userid,jdbcType=DECIMAL},
+      "isHavingImg" = #{record.ishavingimg,jdbcType=DECIMAL},
+      "positionScore" = #{record.positionscore,jdbcType=DECIMAL},
+      "facilitiesScore" = #{record.facilitiesscore,jdbcType=DECIMAL},
+      "serviceScore" = #{record.servicescore,jdbcType=DECIMAL},
+      "hygieneScore" = #{record.hygienescore,jdbcType=DECIMAL},
+      "score" = #{record.score,jdbcType=DECIMAL},
+      "tripMode" = #{record.tripmode,jdbcType=DECIMAL},
+      "isOk" = #{record.isok,jdbcType=DECIMAL},
+      "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
 </mapper>

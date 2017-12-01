@@ -4,137 +4,137 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripHotelOrder {
-    private Long id;
+    private BigDecimal id;
 
-    private Long userid;
+    private BigDecimal userid;
 
-    private Integer ordertype;
+    private Long ordertype;
 
-    private String orderno;
+    private Object orderno;
 
-    private String tradeno;
+    private Object tradeno;
 
-    private Long hotelid;
+    private BigDecimal hotelid;
 
-    private String hotelname;
+    private Object hotelname;
 
-    private Long roomid;
+    private BigDecimal roomid;
 
-    private Integer count;
+    private Long count;
 
-    private Integer bookingdays;
+    private Long bookingdays;
 
     private Date checkindate;
 
     private Date checkoutdate;
 
-    private Integer orderstatus;
+    private Long orderstatus;
 
     private BigDecimal payamount;
 
-    private Integer paytype;
+    private Long paytype;
 
-    private String noticephone;
+    private Object noticephone;
 
-    private String noticeemail;
+    private Object noticeemail;
 
-    private Integer isneedinvoice;
+    private Object specialrequirement;
 
-    private Integer invoicetype;
+    private Long isneedinvoice;
 
-    private String invoicehead;
+    private Long invoicetype;
 
-    private String linkusername;
+    private Object invoicehead;
 
-    private Integer booktype;
+    private Object linkusername;
+
+    private Long booktype;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    private String specialrequirement;
-
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public Long getUserid() {
+    public BigDecimal getUserid() {
         return userid;
     }
 
-    public void setUserid(Long userid) {
+    public void setUserid(BigDecimal userid) {
         this.userid = userid;
     }
 
-    public Integer getOrdertype() {
+    public Long getOrdertype() {
         return ordertype;
     }
 
-    public void setOrdertype(Integer ordertype) {
+    public void setOrdertype(Long ordertype) {
         this.ordertype = ordertype;
     }
 
-    public String getOrderno() {
+    public Object getOrderno() {
         return orderno;
     }
 
-    public void setOrderno(String orderno) {
-        this.orderno = orderno == null ? null : orderno.trim();
+    public void setOrderno(Object orderno) {
+        this.orderno = orderno;
     }
 
-    public String getTradeno() {
+    public Object getTradeno() {
         return tradeno;
     }
 
-    public void setTradeno(String tradeno) {
-        this.tradeno = tradeno == null ? null : tradeno.trim();
+    public void setTradeno(Object tradeno) {
+        this.tradeno = tradeno;
     }
 
-    public Long getHotelid() {
+    public BigDecimal getHotelid() {
         return hotelid;
     }
 
-    public void setHotelid(Long hotelid) {
+    public void setHotelid(BigDecimal hotelid) {
         this.hotelid = hotelid;
     }
 
-    public String getHotelname() {
+    public Object getHotelname() {
         return hotelname;
     }
 
-    public void setHotelname(String hotelname) {
-        this.hotelname = hotelname == null ? null : hotelname.trim();
+    public void setHotelname(Object hotelname) {
+        this.hotelname = hotelname;
     }
 
-    public Long getRoomid() {
+    public BigDecimal getRoomid() {
         return roomid;
     }
 
-    public void setRoomid(Long roomid) {
+    public void setRoomid(BigDecimal roomid) {
         this.roomid = roomid;
     }
 
-    public Integer getCount() {
+    public Long getCount() {
         return count;
     }
 
-    public void setCount(Integer count) {
+    public void setCount(Long count) {
         this.count = count;
     }
 
-    public Integer getBookingdays() {
+    public Long getBookingdays() {
         return bookingdays;
     }
 
-    public void setBookingdays(Integer bookingdays) {
+    public void setBookingdays(Long bookingdays) {
         this.bookingdays = bookingdays;
     }
 
@@ -154,11 +154,11 @@ public class ItripHotelOrder {
         this.checkoutdate = checkoutdate;
     }
 
-    public Integer getOrderstatus() {
+    public Long getOrderstatus() {
         return orderstatus;
     }
 
-    public void setOrderstatus(Integer orderstatus) {
+    public void setOrderstatus(Long orderstatus) {
         this.orderstatus = orderstatus;
     }
 
@@ -170,67 +170,75 @@ public class ItripHotelOrder {
         this.payamount = payamount;
     }
 
-    public Integer getPaytype() {
+    public Long getPaytype() {
         return paytype;
     }
 
-    public void setPaytype(Integer paytype) {
+    public void setPaytype(Long paytype) {
         this.paytype = paytype;
     }
 
-    public String getNoticephone() {
+    public Object getNoticephone() {
         return noticephone;
     }
 
-    public void setNoticephone(String noticephone) {
-        this.noticephone = noticephone == null ? null : noticephone.trim();
+    public void setNoticephone(Object noticephone) {
+        this.noticephone = noticephone;
     }
 
-    public String getNoticeemail() {
+    public Object getNoticeemail() {
         return noticeemail;
     }
 
-    public void setNoticeemail(String noticeemail) {
-        this.noticeemail = noticeemail == null ? null : noticeemail.trim();
+    public void setNoticeemail(Object noticeemail) {
+        this.noticeemail = noticeemail;
     }
 
-    public Integer getIsneedinvoice() {
+    public Object getSpecialrequirement() {
+        return specialrequirement;
+    }
+
+    public void setSpecialrequirement(Object specialrequirement) {
+        this.specialrequirement = specialrequirement;
+    }
+
+    public Long getIsneedinvoice() {
         return isneedinvoice;
     }
 
-    public void setIsneedinvoice(Integer isneedinvoice) {
+    public void setIsneedinvoice(Long isneedinvoice) {
         this.isneedinvoice = isneedinvoice;
     }
 
-    public Integer getInvoicetype() {
+    public Long getInvoicetype() {
         return invoicetype;
     }
 
-    public void setInvoicetype(Integer invoicetype) {
+    public void setInvoicetype(Long invoicetype) {
         this.invoicetype = invoicetype;
     }
 
-    public String getInvoicehead() {
+    public Object getInvoicehead() {
         return invoicehead;
     }
 
-    public void setInvoicehead(String invoicehead) {
-        this.invoicehead = invoicehead == null ? null : invoicehead.trim();
+    public void setInvoicehead(Object invoicehead) {
+        this.invoicehead = invoicehead;
     }
 
-    public String getLinkusername() {
+    public Object getLinkusername() {
         return linkusername;
     }
 
-    public void setLinkusername(String linkusername) {
-        this.linkusername = linkusername == null ? null : linkusername.trim();
+    public void setLinkusername(Object linkusername) {
+        this.linkusername = linkusername;
     }
 
-    public Integer getBooktype() {
+    public Long getBooktype() {
         return booktype;
     }
 
-    public void setBooktype(Integer booktype) {
+    public void setBooktype(Long booktype) {
         this.booktype = booktype;
     }
 
@@ -242,11 +250,11 @@ public class ItripHotelOrder {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -258,19 +266,11 @@ public class ItripHotelOrder {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
-    }
-
-    public String getSpecialrequirement() {
-        return specialrequirement;
-    }
-
-    public void setSpecialrequirement(String specialrequirement) {
-        this.specialrequirement = specialrequirement == null ? null : specialrequirement.trim();
     }
 }

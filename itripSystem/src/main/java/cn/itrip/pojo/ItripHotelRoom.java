@@ -4,58 +4,58 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripHotelRoom {
-    private Long id;
+    private BigDecimal id;
 
-    private Long hotelid;
+    private BigDecimal hotelid;
 
-    private String roomtitle;
+    private Object roomtitle;
 
     private BigDecimal roomprice;
 
-    private Long roombedtypeid;
+    private BigDecimal roombedtypeid;
 
-    private Integer ishavingbreakfast;
+    private Long ishavingbreakfast;
 
-    private Integer paytype;
+    private Long paytype;
 
-    private Long satisfaction;
+    private BigDecimal satisfaction;
 
-    private Integer isbook;
+    private Long isbook;
 
-    private Integer iscancel;
+    private Long iscancel;
 
-    private Integer istimelyresponse;
+    private Long istimelyresponse;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public Long getHotelid() {
+    public BigDecimal getHotelid() {
         return hotelid;
     }
 
-    public void setHotelid(Long hotelid) {
+    public void setHotelid(BigDecimal hotelid) {
         this.hotelid = hotelid;
     }
 
-    public String getRoomtitle() {
+    public Object getRoomtitle() {
         return roomtitle;
     }
 
-    public void setRoomtitle(String roomtitle) {
-        this.roomtitle = roomtitle == null ? null : roomtitle.trim();
+    public void setRoomtitle(Object roomtitle) {
+        this.roomtitle = roomtitle;
     }
 
     public BigDecimal getRoomprice() {
@@ -66,59 +66,59 @@ public class ItripHotelRoom {
         this.roomprice = roomprice;
     }
 
-    public Long getRoombedtypeid() {
+    public BigDecimal getRoombedtypeid() {
         return roombedtypeid;
     }
 
-    public void setRoombedtypeid(Long roombedtypeid) {
+    public void setRoombedtypeid(BigDecimal roombedtypeid) {
         this.roombedtypeid = roombedtypeid;
     }
 
-    public Integer getIshavingbreakfast() {
+    public Long getIshavingbreakfast() {
         return ishavingbreakfast;
     }
 
-    public void setIshavingbreakfast(Integer ishavingbreakfast) {
+    public void setIshavingbreakfast(Long ishavingbreakfast) {
         this.ishavingbreakfast = ishavingbreakfast;
     }
 
-    public Integer getPaytype() {
+    public Long getPaytype() {
         return paytype;
     }
 
-    public void setPaytype(Integer paytype) {
+    public void setPaytype(Long paytype) {
         this.paytype = paytype;
     }
 
-    public Long getSatisfaction() {
+    public BigDecimal getSatisfaction() {
         return satisfaction;
     }
 
-    public void setSatisfaction(Long satisfaction) {
+    public void setSatisfaction(BigDecimal satisfaction) {
         this.satisfaction = satisfaction;
     }
 
-    public Integer getIsbook() {
+    public Long getIsbook() {
         return isbook;
     }
 
-    public void setIsbook(Integer isbook) {
+    public void setIsbook(Long isbook) {
         this.isbook = isbook;
     }
 
-    public Integer getIscancel() {
+    public Long getIscancel() {
         return iscancel;
     }
 
-    public void setIscancel(Integer iscancel) {
+    public void setIscancel(Long iscancel) {
         this.iscancel = iscancel;
     }
 
-    public Integer getIstimelyresponse() {
+    public Long getIstimelyresponse() {
         return istimelyresponse;
     }
 
-    public void setIstimelyresponse(Integer istimelyresponse) {
+    public void setIstimelyresponse(Long istimelyresponse) {
         this.istimelyresponse = istimelyresponse;
     }
 
@@ -130,11 +130,11 @@ public class ItripHotelRoom {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -146,11 +146,11 @@ public class ItripHotelRoom {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

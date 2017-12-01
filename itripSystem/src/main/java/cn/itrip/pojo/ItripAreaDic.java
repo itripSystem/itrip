@@ -1,114 +1,115 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripAreaDic {
-    private Long id;
+    private BigDecimal id;
 
-    private String name;
+    private Object name;
 
-    private String areano;
+    private Object areano;
 
-    private Long parent;
+    private BigDecimal parent;
 
-    private Integer isactivated;
+    private Long isactivated;
 
-    private Integer istradingarea;
+    private Long istradingarea;
 
-    private Integer ishot;
+    private Long ishot;
 
-    private Integer level;
+    private Long level;
 
-    private Integer ischina;
+    private Long ischina;
 
-    private String pinyin;
+    private Object pinyin;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public String getName() {
+    public Object getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setName(Object name) {
+        this.name = name;
     }
 
-    public String getAreano() {
+    public Object getAreano() {
         return areano;
     }
 
-    public void setAreano(String areano) {
-        this.areano = areano == null ? null : areano.trim();
+    public void setAreano(Object areano) {
+        this.areano = areano;
     }
 
-    public Long getParent() {
+    public BigDecimal getParent() {
         return parent;
     }
 
-    public void setParent(Long parent) {
+    public void setParent(BigDecimal parent) {
         this.parent = parent;
     }
 
-    public Integer getIsactivated() {
+    public Long getIsactivated() {
         return isactivated;
     }
 
-    public void setIsactivated(Integer isactivated) {
+    public void setIsactivated(Long isactivated) {
         this.isactivated = isactivated;
     }
 
-    public Integer getIstradingarea() {
+    public Long getIstradingarea() {
         return istradingarea;
     }
 
-    public void setIstradingarea(Integer istradingarea) {
+    public void setIstradingarea(Long istradingarea) {
         this.istradingarea = istradingarea;
     }
 
-    public Integer getIshot() {
+    public Long getIshot() {
         return ishot;
     }
 
-    public void setIshot(Integer ishot) {
+    public void setIshot(Long ishot) {
         this.ishot = ishot;
     }
 
-    public Integer getLevel() {
+    public Long getLevel() {
         return level;
     }
 
-    public void setLevel(Integer level) {
+    public void setLevel(Long level) {
         this.level = level;
     }
 
-    public Integer getIschina() {
+    public Long getIschina() {
         return ischina;
     }
 
-    public void setIschina(Integer ischina) {
+    public void setIschina(Long ischina) {
         this.ischina = ischina;
     }
 
-    public String getPinyin() {
+    public Object getPinyin() {
         return pinyin;
     }
 
-    public void setPinyin(String pinyin) {
-        this.pinyin = pinyin == null ? null : pinyin.trim();
+    public void setPinyin(Object pinyin) {
+        this.pinyin = pinyin;
     }
 
     public Date getCreationdate() {
@@ -119,11 +120,11 @@ public class ItripAreaDic {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -135,11 +136,11 @@ public class ItripAreaDic {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

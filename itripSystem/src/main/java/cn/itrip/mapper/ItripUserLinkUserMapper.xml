@@ -2,152 +2,154 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripUserLinkUserMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripUserLinkUser" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="linkUserName" property="linkusername" jdbcType="VARCHAR" />
-    <result column="linkIdCard" property="linkidcard" jdbcType="VARCHAR" />
-    <result column="linkPhone" property="linkphone" jdbcType="VARCHAR" />
-    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="linkUserName" property="linkusername" jdbcType="OTHER" />
+    <result column="linkIdCard" property="linkidcard" jdbcType="OTHER" />
+    <result column="linkPhone" property="linkphone" jdbcType="OTHER" />
+    <result column="userId" property="userid" jdbcType="DECIMAL" />
     <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdby" jdbcType="DECIMAL" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
-    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
-    <result column="linkIdCardType" property="linkidcardtype" jdbcType="INTEGER" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="DECIMAL" />
+    <result column="linkIdCardType" property="linkidcardtype" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, linkUserName, linkIdCard, linkPhone, userId, creationDate, createdBy, modifyDate, 
-    modifiedBy, linkIdCardType
+    "id", "linkUserName", "linkIdCard", "linkPhone", "userId", "creationDate", "createdBy", 
+    "modifyDate", "modifiedBy", "linkIdCardType"
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    from itrip_user_link_user
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_user_link_user"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_user_link_user
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_user_link_user"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripUserLinkUser" >
-    insert into itrip_user_link_user (id, linkUserName, linkIdCard, 
-      linkPhone, userId, creationDate, 
-      createdBy, modifyDate, modifiedBy, 
-      linkIdCardType)
-    values (#{record.id,jdbcType=BIGINT}, #{record.linkusername,jdbcType=VARCHAR}, #{record.linkidcard,jdbcType=VARCHAR}, 
-      #{record.linkphone,jdbcType=VARCHAR}, #{record.userid,jdbcType=INTEGER}, #{record.creationdate,jdbcType=TIMESTAMP}, 
-      #{record.createdby,jdbcType=BIGINT}, #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT}, 
-      #{record.linkidcardtype,jdbcType=INTEGER})
+    insert into "itrip_user_link_user" ("id", "linkUserName", "linkIdCard", 
+      "linkPhone", "userId", "creationDate", 
+      "createdBy", "modifyDate", 
+      "modifiedBy", "linkIdCardType"
+      )
+    values (#{record.id,jdbcType=DECIMAL}, #{record.linkusername,jdbcType=OTHER}, #{record.linkidcard,jdbcType=OTHER}, 
+      #{record.linkphone,jdbcType=OTHER}, #{record.userid,jdbcType=DECIMAL}, #{record.creationdate,jdbcType=TIMESTAMP}, 
+      #{record.createdby,jdbcType=DECIMAL}, #{record.modifydate,jdbcType=TIMESTAMP}, 
+      #{record.modifiedby,jdbcType=DECIMAL}, #{record.linkidcardtype,jdbcType=DECIMAL}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripUserLinkUser" >
-    insert into itrip_user_link_user
+    insert into "itrip_user_link_user"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.linkusername != null" >
-        linkUserName,
+        "linkUserName",
       </if>
       <if test="record.linkidcard != null" >
-        linkIdCard,
+        "linkIdCard",
       </if>
       <if test="record.linkphone != null" >
-        linkPhone,
+        "linkPhone",
       </if>
       <if test="record.userid != null" >
-        userId,
+        "userId",
       </if>
       <if test="record.creationdate != null" >
-        creationDate,
+        "creationDate",
       </if>
       <if test="record.createdby != null" >
-        createdBy,
+        "createdBy",
       </if>
       <if test="record.modifydate != null" >
-        modifyDate,
+        "modifyDate",
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy,
+        "modifiedBy",
       </if>
       <if test="record.linkidcardtype != null" >
-        linkIdCardType,
+        "linkIdCardType",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.linkusername != null" >
-        #{record.linkusername,jdbcType=VARCHAR},
+        #{record.linkusername,jdbcType=OTHER},
       </if>
       <if test="record.linkidcard != null" >
-        #{record.linkidcard,jdbcType=VARCHAR},
+        #{record.linkidcard,jdbcType=OTHER},
       </if>
       <if test="record.linkphone != null" >
-        #{record.linkphone,jdbcType=VARCHAR},
+        #{record.linkphone,jdbcType=OTHER},
       </if>
       <if test="record.userid != null" >
-        #{record.userid,jdbcType=INTEGER},
+        #{record.userid,jdbcType=DECIMAL},
       </if>
       <if test="record.creationdate != null" >
         #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        #{record.createdby,jdbcType=BIGINT},
+        #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
         #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        #{record.modifiedby,jdbcType=BIGINT},
+        #{record.modifiedby,jdbcType=DECIMAL},
       </if>
       <if test="record.linkidcardtype != null" >
-        #{record.linkidcardtype,jdbcType=INTEGER},
+        #{record.linkidcardtype,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripUserLinkUser" >
-    update itrip_user_link_user
+    update "itrip_user_link_user"
     <set >
       <if test="record.linkusername != null" >
-        linkUserName = #{record.linkusername,jdbcType=VARCHAR},
+        "linkUserName" = #{record.linkusername,jdbcType=OTHER},
       </if>
       <if test="record.linkidcard != null" >
-        linkIdCard = #{record.linkidcard,jdbcType=VARCHAR},
+        "linkIdCard" = #{record.linkidcard,jdbcType=OTHER},
       </if>
       <if test="record.linkphone != null" >
-        linkPhone = #{record.linkphone,jdbcType=VARCHAR},
+        "linkPhone" = #{record.linkphone,jdbcType=OTHER},
       </if>
       <if test="record.userid != null" >
-        userId = #{record.userid,jdbcType=INTEGER},
+        "userId" = #{record.userid,jdbcType=DECIMAL},
       </if>
       <if test="record.creationdate != null" >
-        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+        "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        createdBy = #{record.createdby,jdbcType=BIGINT},
+        "createdBy" = #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
-        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+        "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+        "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
       </if>
       <if test="record.linkidcardtype != null" >
-        linkIdCardType = #{record.linkidcardtype,jdbcType=INTEGER},
+        "linkIdCardType" = #{record.linkidcardtype,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripUserLinkUser" >
-    update itrip_user_link_user
-    set linkUserName = #{record.linkusername,jdbcType=VARCHAR},
-      linkIdCard = #{record.linkidcard,jdbcType=VARCHAR},
-      linkPhone = #{record.linkphone,jdbcType=VARCHAR},
-      userId = #{record.userid,jdbcType=INTEGER},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
-      linkIdCardType = #{record.linkidcardtype,jdbcType=INTEGER}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_user_link_user"
+    set "linkUserName" = #{record.linkusername,jdbcType=OTHER},
+      "linkIdCard" = #{record.linkidcard,jdbcType=OTHER},
+      "linkPhone" = #{record.linkphone,jdbcType=OTHER},
+      "userId" = #{record.userid,jdbcType=DECIMAL},
+      "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
+      "linkIdCardType" = #{record.linkidcardtype,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
 </mapper>

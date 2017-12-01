@@ -1,17 +1,19 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
+
 public class ItripTradeEnds {
-    private Long id;
+    private BigDecimal id;
 
     private String orderno;
 
-    private Boolean flag;
+    private Short flag;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
@@ -23,11 +25,11 @@ public class ItripTradeEnds {
         this.orderno = orderno == null ? null : orderno.trim();
     }
 
-    public Boolean getFlag() {
+    public Short getFlag() {
         return flag;
     }
 
-    public void setFlag(Boolean flag) {
+    public void setFlag(Short flag) {
         this.flag = flag;
     }
 }

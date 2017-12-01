@@ -1,143 +1,174 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripHotel {
-    private Long id;
+    private BigDecimal id;
 
-    private String hotelname;
+    private Object hotelname;
 
-    private Long countryid;
+    private BigDecimal countryid;
 
-    private Long provinceid;
+    private BigDecimal provinceid;
 
-    private Long cityid;
+    private BigDecimal cityid;
 
-    private String address;
+    private Object address;
 
-    private Integer hoteltype;
+    private Object details;
 
-    private Integer hotellevel;
+    private Object facilities;
 
-    private Integer isgrouppurchase;
+    private Object hotelpolicy;
 
-    private String redundantcityname;
+    private Long hoteltype;
 
-    private String redundantprovincename;
+    private Long hotellevel;
 
-    private String redundantcountryname;
+    private Long isgrouppurchase;
 
-    private Integer redundanthotelstore;
+    private Object redundantcityname;
+
+    private Object redundantprovincename;
+
+    private Object redundantcountryname;
+
+    private Long redundanthotelstore;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public String getHotelname() {
+    public Object getHotelname() {
         return hotelname;
     }
 
-    public void setHotelname(String hotelname) {
-        this.hotelname = hotelname == null ? null : hotelname.trim();
+    public void setHotelname(Object hotelname) {
+        this.hotelname = hotelname;
     }
 
-    public Long getCountryid() {
+    public BigDecimal getCountryid() {
         return countryid;
     }
 
-    public void setCountryid(Long countryid) {
+    public void setCountryid(BigDecimal countryid) {
         this.countryid = countryid;
     }
 
-    public Long getProvinceid() {
+    public BigDecimal getProvinceid() {
         return provinceid;
     }
 
-    public void setProvinceid(Long provinceid) {
+    public void setProvinceid(BigDecimal provinceid) {
         this.provinceid = provinceid;
     }
 
-    public Long getCityid() {
+    public BigDecimal getCityid() {
         return cityid;
     }
 
-    public void setCityid(Long cityid) {
+    public void setCityid(BigDecimal cityid) {
         this.cityid = cityid;
     }
 
-    public String getAddress() {
+    public Object getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+    public void setAddress(Object address) {
+        this.address = address;
     }
 
-    public Integer getHoteltype() {
+    public Object getDetails() {
+        return details;
+    }
+
+    public void setDetails(Object details) {
+        this.details = details;
+    }
+
+    public Object getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(Object facilities) {
+        this.facilities = facilities;
+    }
+
+    public Object getHotelpolicy() {
+        return hotelpolicy;
+    }
+
+    public void setHotelpolicy(Object hotelpolicy) {
+        this.hotelpolicy = hotelpolicy;
+    }
+
+    public Long getHoteltype() {
         return hoteltype;
     }
 
-    public void setHoteltype(Integer hoteltype) {
+    public void setHoteltype(Long hoteltype) {
         this.hoteltype = hoteltype;
     }
 
-    public Integer getHotellevel() {
+    public Long getHotellevel() {
         return hotellevel;
     }
 
-    public void setHotellevel(Integer hotellevel) {
+    public void setHotellevel(Long hotellevel) {
         this.hotellevel = hotellevel;
     }
 
-    public Integer getIsgrouppurchase() {
+    public Long getIsgrouppurchase() {
         return isgrouppurchase;
     }
 
-    public void setIsgrouppurchase(Integer isgrouppurchase) {
+    public void setIsgrouppurchase(Long isgrouppurchase) {
         this.isgrouppurchase = isgrouppurchase;
     }
 
-    public String getRedundantcityname() {
+    public Object getRedundantcityname() {
         return redundantcityname;
     }
 
-    public void setRedundantcityname(String redundantcityname) {
-        this.redundantcityname = redundantcityname == null ? null : redundantcityname.trim();
+    public void setRedundantcityname(Object redundantcityname) {
+        this.redundantcityname = redundantcityname;
     }
 
-    public String getRedundantprovincename() {
+    public Object getRedundantprovincename() {
         return redundantprovincename;
     }
 
-    public void setRedundantprovincename(String redundantprovincename) {
-        this.redundantprovincename = redundantprovincename == null ? null : redundantprovincename.trim();
+    public void setRedundantprovincename(Object redundantprovincename) {
+        this.redundantprovincename = redundantprovincename;
     }
 
-    public String getRedundantcountryname() {
+    public Object getRedundantcountryname() {
         return redundantcountryname;
     }
 
-    public void setRedundantcountryname(String redundantcountryname) {
-        this.redundantcountryname = redundantcountryname == null ? null : redundantcountryname.trim();
+    public void setRedundantcountryname(Object redundantcountryname) {
+        this.redundantcountryname = redundantcountryname;
     }
 
-    public Integer getRedundanthotelstore() {
+    public Long getRedundanthotelstore() {
         return redundanthotelstore;
     }
 
-    public void setRedundanthotelstore(Integer redundanthotelstore) {
+    public void setRedundanthotelstore(Long redundanthotelstore) {
         this.redundanthotelstore = redundanthotelstore;
     }
 
@@ -149,11 +180,11 @@ public class ItripHotel {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -165,11 +196,11 @@ public class ItripHotel {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

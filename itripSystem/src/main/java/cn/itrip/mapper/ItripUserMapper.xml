@@ -2,211 +2,219 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripUserMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripUser" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="userCode" property="usercode" jdbcType="VARCHAR" />
-    <result column="userPassword" property="userpassword" jdbcType="VARCHAR" />
-    <result column="userType" property="usertype" jdbcType="INTEGER" />
-    <result column="flatID" property="flatid" jdbcType="BIGINT" />
-    <result column="userName" property="username" jdbcType="VARCHAR" />
-    <result column="weChat" property="wechat" jdbcType="VARCHAR" />
-    <result column="QQ" property="qq" jdbcType="VARCHAR" />
-    <result column="weibo" property="weibo" jdbcType="VARCHAR" />
-    <result column="baidu" property="baidu" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="userCode" property="usercode" jdbcType="OTHER" />
+    <result column="userPassword" property="userpassword" jdbcType="OTHER" />
+    <result column="userType" property="usertype" jdbcType="DECIMAL" />
+    <result column="flatID" property="flatid" jdbcType="DECIMAL" />
+    <result column="userName" property="username" jdbcType="OTHER" />
+    <result column="weChat" property="wechat" jdbcType="OTHER" />
+    <result column="QQ" property="qq" jdbcType="OTHER" />
+    <result column="weibo" property="weibo" jdbcType="OTHER" />
+    <result column="baidu" property="baidu" jdbcType="OTHER" />
     <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdby" jdbcType="DECIMAL" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
-    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
-    <result column="activated" property="activated" jdbcType="INTEGER" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="DECIMAL" />
+    <result column="activated" property="activated" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, userCode, userPassword, userType, flatID, userName, weChat, QQ, weibo, baidu, 
-    creationDate, createdBy, modifyDate, modifiedBy, activated
+    "id", "userCode", "userPassword", "userType", "flatID", "userName", "weChat", "QQ", 
+    "weibo", "baidu", "creationDate", "createdBy", "modifyDate", "modifiedBy", "activated"
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    from itrip_user
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_user"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_user
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_user"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripUser" >
-    insert into itrip_user (id, userCode, userPassword, 
-      userType, flatID, userName, 
-      weChat, QQ, weibo, 
-      baidu, creationDate, createdBy, 
-      modifyDate, modifiedBy, 
-      activated)
-    values (#{record.id,jdbcType=BIGINT}, #{record.usercode,jdbcType=VARCHAR}, #{record.userpassword,jdbcType=VARCHAR}, 
-      #{record.usertype,jdbcType=INTEGER}, #{record.flatid,jdbcType=BIGINT}, #{record.username,jdbcType=VARCHAR}, 
-      #{record.wechat,jdbcType=VARCHAR}, #{record.qq,jdbcType=VARCHAR}, #{record.weibo,jdbcType=VARCHAR}, 
-      #{record.baidu,jdbcType=VARCHAR}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=BIGINT}, 
-      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT}, 
-      #{record.activated,jdbcType=INTEGER})
+    insert into "itrip_user" ("id", "userCode", "userPassword", 
+      "userType", "flatID", "userName", 
+      "weChat", "QQ", "weibo", 
+      "baidu", "creationDate", "createdBy", 
+      "modifyDate", "modifiedBy", 
+      "activated")
+    values (#{record.id,jdbcType=DECIMAL}, #{record.usercode,jdbcType=OTHER}, #{record.userpassword,jdbcType=OTHER}, 
+      #{record.usertype,jdbcType=DECIMAL}, #{record.flatid,jdbcType=DECIMAL}, #{record.username,jdbcType=OTHER}, 
+      #{record.wechat,jdbcType=OTHER}, #{record.qq,jdbcType=OTHER}, #{record.weibo,jdbcType=OTHER}, 
+      #{record.baidu,jdbcType=OTHER}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=DECIMAL}, 
+      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=DECIMAL}, 
+      #{record.activated,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripUser" >
-    insert into itrip_user
+    insert into "itrip_user"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.usercode != null" >
-        userCode,
+        "userCode",
       </if>
       <if test="record.userpassword != null" >
-        userPassword,
+        "userPassword",
       </if>
       <if test="record.usertype != null" >
-        userType,
+        "userType",
       </if>
       <if test="record.flatid != null" >
-        flatID,
+        "flatID",
       </if>
       <if test="record.username != null" >
-        userName,
+        "userName",
       </if>
       <if test="record.wechat != null" >
-        weChat,
+        "weChat",
       </if>
       <if test="record.qq != null" >
-        QQ,
+        "QQ",
       </if>
       <if test="record.weibo != null" >
-        weibo,
+        "weibo",
       </if>
       <if test="record.baidu != null" >
-        baidu,
+        "baidu",
       </if>
       <if test="record.creationdate != null" >
-        creationDate,
+        "creationDate",
       </if>
       <if test="record.createdby != null" >
-        createdBy,
+        "createdBy",
       </if>
       <if test="record.modifydate != null" >
-        modifyDate,
+        "modifyDate",
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy,
+        "modifiedBy",
       </if>
       <if test="record.activated != null" >
-        activated,
+        "activated",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.usercode != null" >
-        #{record.usercode,jdbcType=VARCHAR},
+        #{record.usercode,jdbcType=OTHER},
       </if>
       <if test="record.userpassword != null" >
-        #{record.userpassword,jdbcType=VARCHAR},
+        #{record.userpassword,jdbcType=OTHER},
       </if>
       <if test="record.usertype != null" >
-        #{record.usertype,jdbcType=INTEGER},
+        #{record.usertype,jdbcType=DECIMAL},
       </if>
       <if test="record.flatid != null" >
-        #{record.flatid,jdbcType=BIGINT},
+        #{record.flatid,jdbcType=DECIMAL},
       </if>
       <if test="record.username != null" >
-        #{record.username,jdbcType=VARCHAR},
+        #{record.username,jdbcType=OTHER},
       </if>
       <if test="record.wechat != null" >
-        #{record.wechat,jdbcType=VARCHAR},
+        #{record.wechat,jdbcType=OTHER},
       </if>
       <if test="record.qq != null" >
-        #{record.qq,jdbcType=VARCHAR},
+        #{record.qq,jdbcType=OTHER},
       </if>
       <if test="record.weibo != null" >
-        #{record.weibo,jdbcType=VARCHAR},
+        #{record.weibo,jdbcType=OTHER},
       </if>
       <if test="record.baidu != null" >
-        #{record.baidu,jdbcType=VARCHAR},
+        #{record.baidu,jdbcType=OTHER},
       </if>
       <if test="record.creationdate != null" >
         #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        #{record.createdby,jdbcType=BIGINT},
+        #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
         #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        #{record.modifiedby,jdbcType=BIGINT},
+        #{record.modifiedby,jdbcType=DECIMAL},
       </if>
       <if test="record.activated != null" >
-        #{record.activated,jdbcType=INTEGER},
+        #{record.activated,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripUser" >
-    update itrip_user
+    update "itrip_user"
     <set >
       <if test="record.usercode != null" >
-        userCode = #{record.usercode,jdbcType=VARCHAR},
+        "userCode" = #{record.usercode,jdbcType=OTHER},
       </if>
       <if test="record.userpassword != null" >
-        userPassword = #{record.userpassword,jdbcType=VARCHAR},
+        "userPassword" = #{record.userpassword,jdbcType=OTHER},
       </if>
       <if test="record.usertype != null" >
-        userType = #{record.usertype,jdbcType=INTEGER},
+        "userType" = #{record.usertype,jdbcType=DECIMAL},
       </if>
       <if test="record.flatid != null" >
-        flatID = #{record.flatid,jdbcType=BIGINT},
+        "flatID" = #{record.flatid,jdbcType=DECIMAL},
       </if>
       <if test="record.username != null" >
-        userName = #{record.username,jdbcType=VARCHAR},
+        "userName" = #{record.username,jdbcType=OTHER},
       </if>
       <if test="record.wechat != null" >
-        weChat = #{record.wechat,jdbcType=VARCHAR},
+        "weChat" = #{record.wechat,jdbcType=OTHER},
       </if>
       <if test="record.qq != null" >
-        QQ = #{record.qq,jdbcType=VARCHAR},
+        "QQ" = #{record.qq,jdbcType=OTHER},
       </if>
       <if test="record.weibo != null" >
-        weibo = #{record.weibo,jdbcType=VARCHAR},
+        "weibo" = #{record.weibo,jdbcType=OTHER},
       </if>
       <if test="record.baidu != null" >
-        baidu = #{record.baidu,jdbcType=VARCHAR},
+        "baidu" = #{record.baidu,jdbcType=OTHER},
       </if>
       <if test="record.creationdate != null" >
-        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+        "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        createdBy = #{record.createdby,jdbcType=BIGINT},
+        "createdBy" = #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
-        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+        "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+        "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
       </if>
       <if test="record.activated != null" >
-        activated = #{record.activated,jdbcType=INTEGER},
+        "activated" = #{record.activated,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripUser" >
-    update itrip_user
-    set userCode = #{record.usercode,jdbcType=VARCHAR},
-      userPassword = #{record.userpassword,jdbcType=VARCHAR},
-      userType = #{record.usertype,jdbcType=INTEGER},
-      flatID = #{record.flatid,jdbcType=BIGINT},
-      userName = #{record.username,jdbcType=VARCHAR},
-      weChat = #{record.wechat,jdbcType=VARCHAR},
-      QQ = #{record.qq,jdbcType=VARCHAR},
-      weibo = #{record.weibo,jdbcType=VARCHAR},
-      baidu = #{record.baidu,jdbcType=VARCHAR},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
-      activated = #{record.activated,jdbcType=INTEGER}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_user"
+    set "userCode" = #{record.usercode,jdbcType=OTHER},
+      "userPassword" = #{record.userpassword,jdbcType=OTHER},
+      "userType" = #{record.usertype,jdbcType=DECIMAL},
+      "flatID" = #{record.flatid,jdbcType=DECIMAL},
+      "userName" = #{record.username,jdbcType=OTHER},
+      "weChat" = #{record.wechat,jdbcType=OTHER},
+      "QQ" = #{record.qq,jdbcType=OTHER},
+      "weibo" = #{record.weibo,jdbcType=OTHER},
+      "baidu" = #{record.baidu,jdbcType=OTHER},
+      "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
+      "activated" = #{record.activated,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
+  
+  <!-- ************************ wf *************************** -->
+	<select id="queryByLog" resultMap="BaseResultMap">
+		SELECT 
+		 <include refid="Base_Column_List" />
+	 	FROM "itrip_user" WHERE "userCode"=#{userCode}  AND "userPassword"=#{userPassword}
+	</select>
+  <!-- ************************  /wf *************************** -->
 </mapper>

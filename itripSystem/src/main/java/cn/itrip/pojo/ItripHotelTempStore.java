@@ -1,47 +1,48 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripHotelTempStore {
-    private Long id;
+    private BigDecimal id;
 
-    private Integer hotelid;
+    private Long hotelid;
 
-    private Long roomid;
+    private BigDecimal roomid;
 
     private Date recorddate;
 
-    private Integer store;
+    private Long store;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public Integer getHotelid() {
+    public Long getHotelid() {
         return hotelid;
     }
 
-    public void setHotelid(Integer hotelid) {
+    public void setHotelid(Long hotelid) {
         this.hotelid = hotelid;
     }
 
-    public Long getRoomid() {
+    public BigDecimal getRoomid() {
         return roomid;
     }
 
-    public void setRoomid(Long roomid) {
+    public void setRoomid(BigDecimal roomid) {
         this.roomid = roomid;
     }
 
@@ -53,11 +54,11 @@ public class ItripHotelTempStore {
         this.recorddate = recorddate;
     }
 
-    public Integer getStore() {
+    public Long getStore() {
         return store;
     }
 
-    public void setStore(Integer store) {
+    public void setStore(Long store) {
         this.store = store;
     }
 
@@ -69,11 +70,11 @@ public class ItripHotelTempStore {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -85,11 +86,11 @@ public class ItripHotelTempStore {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

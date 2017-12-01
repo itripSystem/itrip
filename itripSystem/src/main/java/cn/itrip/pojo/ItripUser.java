@@ -1,116 +1,117 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripUser {
-    private Long id;
+    private BigDecimal id;
 
-    private String usercode;
+    private Object usercode;
 
-    private String userpassword;
+    private Object userpassword;
 
-    private Integer usertype;
+    private Long usertype;
 
-    private Long flatid;
+    private BigDecimal flatid;
 
-    private String username;
+    private Object username;
 
-    private String wechat;
+    private Object wechat;
 
-    private String qq;
+    private Object qq;
 
-    private String weibo;
+    private Object weibo;
 
-    private String baidu;
+    private Object baidu;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    private Integer activated;
+    private Long activated;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public String getUsercode() {
+    public Object getUsercode() {
         return usercode;
     }
 
-    public void setUsercode(String usercode) {
-        this.usercode = usercode == null ? null : usercode.trim();
+    public void setUsercode(Object usercode) {
+        this.usercode = usercode;
     }
 
-    public String getUserpassword() {
+    public Object getUserpassword() {
         return userpassword;
     }
 
-    public void setUserpassword(String userpassword) {
-        this.userpassword = userpassword == null ? null : userpassword.trim();
+    public void setUserpassword(Object userpassword) {
+        this.userpassword = userpassword;
     }
 
-    public Integer getUsertype() {
+    public Long getUsertype() {
         return usertype;
     }
 
-    public void setUsertype(Integer usertype) {
+    public void setUsertype(Long usertype) {
         this.usertype = usertype;
     }
 
-    public Long getFlatid() {
+    public BigDecimal getFlatid() {
         return flatid;
     }
 
-    public void setFlatid(Long flatid) {
+    public void setFlatid(BigDecimal flatid) {
         this.flatid = flatid;
     }
 
-    public String getUsername() {
+    public Object getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUsername(Object username) {
+        this.username = username;
     }
 
-    public String getWechat() {
+    public Object getWechat() {
         return wechat;
     }
 
-    public void setWechat(String wechat) {
-        this.wechat = wechat == null ? null : wechat.trim();
+    public void setWechat(Object wechat) {
+        this.wechat = wechat;
     }
 
-    public String getQq() {
+    public Object getQq() {
         return qq;
     }
 
-    public void setQq(String qq) {
-        this.qq = qq == null ? null : qq.trim();
+    public void setQq(Object qq) {
+        this.qq = qq;
     }
 
-    public String getWeibo() {
+    public Object getWeibo() {
         return weibo;
     }
 
-    public void setWeibo(String weibo) {
-        this.weibo = weibo == null ? null : weibo.trim();
+    public void setWeibo(Object weibo) {
+        this.weibo = weibo;
     }
 
-    public String getBaidu() {
+    public Object getBaidu() {
         return baidu;
     }
 
-    public void setBaidu(String baidu) {
-        this.baidu = baidu == null ? null : baidu.trim();
+    public void setBaidu(Object baidu) {
+        this.baidu = baidu;
     }
 
     public Date getCreationdate() {
@@ -121,11 +122,11 @@ public class ItripUser {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -137,19 +138,19 @@ public class ItripUser {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 
-    public Integer getActivated() {
+    public Long getActivated() {
         return activated;
     }
 
-    public void setActivated(Integer activated) {
+    public void setActivated(Long activated) {
         this.activated = activated;
     }
 }

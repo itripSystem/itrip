@@ -1,53 +1,54 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripProductStore {
-    private Long id;
+    private BigDecimal id;
 
-    private Integer producttype;
+    private Long producttype;
 
-    private Long productid;
+    private BigDecimal productid;
 
-    private Integer store;
+    private Long store;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public Integer getProducttype() {
+    public Long getProducttype() {
         return producttype;
     }
 
-    public void setProducttype(Integer producttype) {
+    public void setProducttype(Long producttype) {
         this.producttype = producttype;
     }
 
-    public Long getProductid() {
+    public BigDecimal getProductid() {
         return productid;
     }
 
-    public void setProductid(Long productid) {
+    public void setProductid(BigDecimal productid) {
         this.productid = productid;
     }
 
-    public Integer getStore() {
+    public Long getStore() {
         return store;
     }
 
-    public void setStore(Integer store) {
+    public void setStore(Long store) {
         this.store = store;
     }
 
@@ -59,11 +60,11 @@ public class ItripProductStore {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -75,11 +76,11 @@ public class ItripProductStore {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

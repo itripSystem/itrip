@@ -1,74 +1,75 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripLabelDic {
-    private Long id;
+    private BigDecimal id;
 
-    private String name;
+    private Object name;
 
-    private String value;
+    private Object value;
 
-    private String description;
+    private Object description;
 
-    private Long parentid;
+    private BigDecimal parentid;
 
-    private String pic;
+    private Object pic;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public String getName() {
+    public Object getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setName(Object name) {
+        this.name = name;
     }
 
-    public String getValue() {
+    public Object getValue() {
         return value;
     }
 
-    public void setValue(String value) {
-        this.value = value == null ? null : value.trim();
+    public void setValue(Object value) {
+        this.value = value;
     }
 
-    public String getDescription() {
+    public Object getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+    public void setDescription(Object description) {
+        this.description = description;
     }
 
-    public Long getParentid() {
+    public BigDecimal getParentid() {
         return parentid;
     }
 
-    public void setParentid(Long parentid) {
+    public void setParentid(BigDecimal parentid) {
         this.parentid = parentid;
     }
 
-    public String getPic() {
+    public Object getPic() {
         return pic;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic == null ? null : pic.trim();
+    public void setPic(Object pic) {
+        this.pic = pic;
     }
 
     public Date getCreationdate() {
@@ -79,11 +80,11 @@ public class ItripLabelDic {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -95,11 +96,11 @@ public class ItripLabelDic {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

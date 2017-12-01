@@ -1,64 +1,65 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripImage {
-    private Long id;
+    private BigDecimal id;
 
-    private String type;
+    private Object type;
 
-    private Long targetid;
+    private BigDecimal targetid;
 
-    private Integer position;
+    private Long position;
 
-    private String imgurl;
+    private Object imgurl;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public String getType() {
+    public Object getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+    public void setType(Object type) {
+        this.type = type;
     }
 
-    public Long getTargetid() {
+    public BigDecimal getTargetid() {
         return targetid;
     }
 
-    public void setTargetid(Long targetid) {
+    public void setTargetid(BigDecimal targetid) {
         this.targetid = targetid;
     }
 
-    public Integer getPosition() {
+    public Long getPosition() {
         return position;
     }
 
-    public void setPosition(Integer position) {
+    public void setPosition(Long position) {
         this.position = position;
     }
 
-    public String getImgurl() {
+    public Object getImgurl() {
         return imgurl;
     }
 
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl == null ? null : imgurl.trim();
+    public void setImgurl(Object imgurl) {
+        this.imgurl = imgurl;
     }
 
     public Date getCreationdate() {
@@ -69,11 +70,11 @@ public class ItripImage {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -85,11 +86,11 @@ public class ItripImage {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

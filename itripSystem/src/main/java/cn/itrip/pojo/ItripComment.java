@@ -1,155 +1,164 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripComment {
-    private Long id;
+    private BigDecimal id;
 
-    private Long hotelid;
+    private BigDecimal hotelid;
 
-    private Long productid;
+    private BigDecimal productid;
 
-    private Long orderid;
+    private BigDecimal orderid;
 
-    private Integer producttype;
+    private Long producttype;
 
-    private Long userid;
+    private Object content;
 
-    private Integer ishavingimg;
+    private BigDecimal userid;
 
-    private Integer positionscore;
+    private Long ishavingimg;
 
-    private Integer facilitiesscore;
+    private Long positionscore;
 
-    private Integer servicescore;
+    private Long facilitiesscore;
 
-    private Integer hygienescore;
+    private Long servicescore;
 
-    private Integer score;
+    private Long hygienescore;
 
-    private Long tripmode;
+    private Long score;
 
-    private Integer isok;
+    private BigDecimal tripmode;
+
+    private Long isok;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    private String content;
-
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public Long getHotelid() {
+    public BigDecimal getHotelid() {
         return hotelid;
     }
 
-    public void setHotelid(Long hotelid) {
+    public void setHotelid(BigDecimal hotelid) {
         this.hotelid = hotelid;
     }
 
-    public Long getProductid() {
+    public BigDecimal getProductid() {
         return productid;
     }
 
-    public void setProductid(Long productid) {
+    public void setProductid(BigDecimal productid) {
         this.productid = productid;
     }
 
-    public Long getOrderid() {
+    public BigDecimal getOrderid() {
         return orderid;
     }
 
-    public void setOrderid(Long orderid) {
+    public void setOrderid(BigDecimal orderid) {
         this.orderid = orderid;
     }
 
-    public Integer getProducttype() {
+    public Long getProducttype() {
         return producttype;
     }
 
-    public void setProducttype(Integer producttype) {
+    public void setProducttype(Long producttype) {
         this.producttype = producttype;
     }
 
-    public Long getUserid() {
+    public Object getContent() {
+        return content;
+    }
+
+    public void setContent(Object content) {
+        this.content = content;
+    }
+
+    public BigDecimal getUserid() {
         return userid;
     }
 
-    public void setUserid(Long userid) {
+    public void setUserid(BigDecimal userid) {
         this.userid = userid;
     }
 
-    public Integer getIshavingimg() {
+    public Long getIshavingimg() {
         return ishavingimg;
     }
 
-    public void setIshavingimg(Integer ishavingimg) {
+    public void setIshavingimg(Long ishavingimg) {
         this.ishavingimg = ishavingimg;
     }
 
-    public Integer getPositionscore() {
+    public Long getPositionscore() {
         return positionscore;
     }
 
-    public void setPositionscore(Integer positionscore) {
+    public void setPositionscore(Long positionscore) {
         this.positionscore = positionscore;
     }
 
-    public Integer getFacilitiesscore() {
+    public Long getFacilitiesscore() {
         return facilitiesscore;
     }
 
-    public void setFacilitiesscore(Integer facilitiesscore) {
+    public void setFacilitiesscore(Long facilitiesscore) {
         this.facilitiesscore = facilitiesscore;
     }
 
-    public Integer getServicescore() {
+    public Long getServicescore() {
         return servicescore;
     }
 
-    public void setServicescore(Integer servicescore) {
+    public void setServicescore(Long servicescore) {
         this.servicescore = servicescore;
     }
 
-    public Integer getHygienescore() {
+    public Long getHygienescore() {
         return hygienescore;
     }
 
-    public void setHygienescore(Integer hygienescore) {
+    public void setHygienescore(Long hygienescore) {
         this.hygienescore = hygienescore;
     }
 
-    public Integer getScore() {
+    public Long getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(Long score) {
         this.score = score;
     }
 
-    public Long getTripmode() {
+    public BigDecimal getTripmode() {
         return tripmode;
     }
 
-    public void setTripmode(Long tripmode) {
+    public void setTripmode(BigDecimal tripmode) {
         this.tripmode = tripmode;
     }
 
-    public Integer getIsok() {
+    public Long getIsok() {
         return isok;
     }
 
-    public void setIsok(Integer isok) {
+    public void setIsok(Long isok) {
         this.isok = isok;
     }
 
@@ -161,11 +170,11 @@ public class ItripComment {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -177,19 +186,11 @@ public class ItripComment {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
     }
 }

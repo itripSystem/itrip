@@ -2,127 +2,128 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripProductStoreMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripProductStore" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="productType" property="producttype" jdbcType="INTEGER" />
-    <result column="productId" property="productid" jdbcType="BIGINT" />
-    <result column="store" property="store" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="productType" property="producttype" jdbcType="DECIMAL" />
+    <result column="productId" property="productid" jdbcType="DECIMAL" />
+    <result column="store" property="store" jdbcType="DECIMAL" />
     <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdby" jdbcType="DECIMAL" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
-    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, productType, productId, store, creationDate, createdBy, modifyDate, modifiedBy
+    "id", "productType", "productId", "store", "creationDate", "createdBy", "modifyDate", 
+    "modifiedBy"
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    from itrip_product_store
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_product_store"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_product_store
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_product_store"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripProductStore" >
-    insert into itrip_product_store (id, productType, productId, 
-      store, creationDate, createdBy, 
-      modifyDate, modifiedBy)
-    values (#{record.id,jdbcType=BIGINT}, #{record.producttype,jdbcType=INTEGER}, #{record.productid,jdbcType=BIGINT}, 
-      #{record.store,jdbcType=INTEGER}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=BIGINT}, 
-      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT})
+    insert into "itrip_product_store" ("id", "productType", "productId", 
+      "store", "creationDate", "createdBy", 
+      "modifyDate", "modifiedBy")
+    values (#{record.id,jdbcType=DECIMAL}, #{record.producttype,jdbcType=DECIMAL}, #{record.productid,jdbcType=DECIMAL}, 
+      #{record.store,jdbcType=DECIMAL}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=DECIMAL}, 
+      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripProductStore" >
-    insert into itrip_product_store
+    insert into "itrip_product_store"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.producttype != null" >
-        productType,
+        "productType",
       </if>
       <if test="record.productid != null" >
-        productId,
+        "productId",
       </if>
       <if test="record.store != null" >
-        store,
+        "store",
       </if>
       <if test="record.creationdate != null" >
-        creationDate,
+        "creationDate",
       </if>
       <if test="record.createdby != null" >
-        createdBy,
+        "createdBy",
       </if>
       <if test="record.modifydate != null" >
-        modifyDate,
+        "modifyDate",
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy,
+        "modifiedBy",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.producttype != null" >
-        #{record.producttype,jdbcType=INTEGER},
+        #{record.producttype,jdbcType=DECIMAL},
       </if>
       <if test="record.productid != null" >
-        #{record.productid,jdbcType=BIGINT},
+        #{record.productid,jdbcType=DECIMAL},
       </if>
       <if test="record.store != null" >
-        #{record.store,jdbcType=INTEGER},
+        #{record.store,jdbcType=DECIMAL},
       </if>
       <if test="record.creationdate != null" >
         #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        #{record.createdby,jdbcType=BIGINT},
+        #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
         #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        #{record.modifiedby,jdbcType=BIGINT},
+        #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripProductStore" >
-    update itrip_product_store
+    update "itrip_product_store"
     <set >
       <if test="record.producttype != null" >
-        productType = #{record.producttype,jdbcType=INTEGER},
+        "productType" = #{record.producttype,jdbcType=DECIMAL},
       </if>
       <if test="record.productid != null" >
-        productId = #{record.productid,jdbcType=BIGINT},
+        "productId" = #{record.productid,jdbcType=DECIMAL},
       </if>
       <if test="record.store != null" >
-        store = #{record.store,jdbcType=INTEGER},
+        "store" = #{record.store,jdbcType=DECIMAL},
       </if>
       <if test="record.creationdate != null" >
-        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+        "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        createdBy = #{record.createdby,jdbcType=BIGINT},
+        "createdBy" = #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
-        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+        "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+        "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripProductStore" >
-    update itrip_product_store
-    set productType = #{record.producttype,jdbcType=INTEGER},
-      productId = #{record.productid,jdbcType=BIGINT},
-      store = #{record.store,jdbcType=INTEGER},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_product_store"
+    set "productType" = #{record.producttype,jdbcType=DECIMAL},
+      "productId" = #{record.productid,jdbcType=DECIMAL},
+      "store" = #{record.store,jdbcType=DECIMAL},
+      "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
 </mapper>

@@ -1,54 +1,55 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripOrderLinkUser {
-    private Long id;
+    private BigDecimal id;
 
-    private Long orderid;
+    private BigDecimal orderid;
 
-    private Long linkuserid;
+    private BigDecimal linkuserid;
 
-    private String linkusername;
+    private Object linkusername;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public Long getOrderid() {
+    public BigDecimal getOrderid() {
         return orderid;
     }
 
-    public void setOrderid(Long orderid) {
+    public void setOrderid(BigDecimal orderid) {
         this.orderid = orderid;
     }
 
-    public Long getLinkuserid() {
+    public BigDecimal getLinkuserid() {
         return linkuserid;
     }
 
-    public void setLinkuserid(Long linkuserid) {
+    public void setLinkuserid(BigDecimal linkuserid) {
         this.linkuserid = linkuserid;
     }
 
-    public String getLinkusername() {
+    public Object getLinkusername() {
         return linkusername;
     }
 
-    public void setLinkusername(String linkusername) {
-        this.linkusername = linkusername == null ? null : linkusername.trim();
+    public void setLinkusername(Object linkusername) {
+        this.linkusername = linkusername;
     }
 
     public Date getCreationdate() {
@@ -59,11 +60,11 @@ public class ItripOrderLinkUser {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -75,11 +76,11 @@ public class ItripOrderLinkUser {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

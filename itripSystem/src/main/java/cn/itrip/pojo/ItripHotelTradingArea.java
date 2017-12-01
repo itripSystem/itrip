@@ -1,43 +1,44 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripHotelTradingArea {
-    private Long id;
+    private BigDecimal id;
 
-    private Long hotelid;
+    private BigDecimal hotelid;
 
-    private Long areaid;
+    private BigDecimal areaid;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public Long getHotelid() {
+    public BigDecimal getHotelid() {
         return hotelid;
     }
 
-    public void setHotelid(Long hotelid) {
+    public void setHotelid(BigDecimal hotelid) {
         this.hotelid = hotelid;
     }
 
-    public Long getAreaid() {
+    public BigDecimal getAreaid() {
         return areaid;
     }
 
-    public void setAreaid(Long areaid) {
+    public void setAreaid(BigDecimal areaid) {
         this.areaid = areaid;
     }
 
@@ -49,11 +50,11 @@ public class ItripHotelTradingArea {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -65,11 +66,11 @@ public class ItripHotelTradingArea {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 }

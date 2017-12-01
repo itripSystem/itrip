@@ -2,70 +2,70 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripTradeEndsMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripTradeEnds" >
-    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
     <result column="orderNo" property="orderno" jdbcType="VARCHAR" />
-    <result column="flag" property="flag" jdbcType="BIT" />
+    <result column="flag" property="flag" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, orderNo, flag
+    "id", "orderNo", "flag"
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    from itrip_trade_ends
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_trade_ends"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_trade_ends
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_trade_ends"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripTradeEnds" >
-    insert into itrip_trade_ends (id, orderNo, flag
+    insert into "itrip_trade_ends" ("id", "orderNo", "flag"
       )
-    values (#{record.id,jdbcType=BIGINT}, #{record.orderno,jdbcType=VARCHAR}, #{record.flag,jdbcType=BIT}
+    values (#{record.id,jdbcType=DECIMAL}, #{record.orderno,jdbcType=VARCHAR}, #{record.flag,jdbcType=DECIMAL}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripTradeEnds" >
-    insert into itrip_trade_ends
+    insert into "itrip_trade_ends"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.orderno != null" >
-        orderNo,
+        "orderNo",
       </if>
       <if test="record.flag != null" >
-        flag,
+        "flag",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.orderno != null" >
         #{record.orderno,jdbcType=VARCHAR},
       </if>
       <if test="record.flag != null" >
-        #{record.flag,jdbcType=BIT},
+        #{record.flag,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripTradeEnds" >
-    update itrip_trade_ends
+    update "itrip_trade_ends"
     <set >
       <if test="record.orderno != null" >
-        orderNo = #{record.orderno,jdbcType=VARCHAR},
+        "orderNo" = #{record.orderno,jdbcType=VARCHAR},
       </if>
       <if test="record.flag != null" >
-        flag = #{record.flag,jdbcType=BIT},
+        "flag" = #{record.flag,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripTradeEnds" >
-    update itrip_trade_ends
-    set orderNo = #{record.orderno,jdbcType=VARCHAR},
-      flag = #{record.flag,jdbcType=BIT}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_trade_ends"
+    set "orderNo" = #{record.orderno,jdbcType=VARCHAR},
+      "flag" = #{record.flag,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
 </mapper>

@@ -43,7 +43,7 @@
 		<property name="timeBetweenEvictionRunsMillis" value="60000" />
 		<property name="testOnBorrow" value="false" />
 		<property name="testOnReturn" value="false" />
-		<property name="validationQuery" value="select 1" />
+		<property name="validationQuery" value="select 1 from dual" />
 		<property name="numTestsPerEvictionRun" value="${maxActive}" />
 	</bean>
 

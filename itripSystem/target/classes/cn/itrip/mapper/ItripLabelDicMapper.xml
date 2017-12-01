@@ -2,152 +2,152 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripLabelDicMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripLabelDic" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="value" property="value" jdbcType="VARCHAR" />
-    <result column="description" property="description" jdbcType="VARCHAR" />
-    <result column="parentId" property="parentid" jdbcType="BIGINT" />
-    <result column="pic" property="pic" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="name" property="name" jdbcType="OTHER" />
+    <result column="value" property="value" jdbcType="OTHER" />
+    <result column="description" property="description" jdbcType="OTHER" />
+    <result column="parentId" property="parentid" jdbcType="DECIMAL" />
+    <result column="pic" property="pic" jdbcType="OTHER" />
     <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdby" jdbcType="DECIMAL" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
-    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, value, description, parentId, pic, creationDate, createdBy, modifyDate, 
-    modifiedBy
+    "id", "name", "value", "description", "parentId", "pic", "creationDate", "createdBy", 
+    "modifyDate", "modifiedBy"
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    from itrip_label_dic
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_label_dic"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_label_dic
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_label_dic"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripLabelDic" >
-    insert into itrip_label_dic (id, name, value, 
-      description, parentId, pic, 
-      creationDate, createdBy, 
-      modifyDate, modifiedBy)
-    values (#{record.id,jdbcType=BIGINT}, #{record.name,jdbcType=VARCHAR}, #{record.value,jdbcType=VARCHAR}, 
-      #{record.description,jdbcType=VARCHAR}, #{record.parentid,jdbcType=BIGINT}, #{record.pic,jdbcType=VARCHAR}, 
-      #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=BIGINT}, 
-      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT})
+    insert into "itrip_label_dic" ("id", "name", "value", 
+      "description", "parentId", "pic", 
+      "creationDate", "createdBy", 
+      "modifyDate", "modifiedBy")
+    values (#{record.id,jdbcType=DECIMAL}, #{record.name,jdbcType=OTHER}, #{record.value,jdbcType=OTHER}, 
+      #{record.description,jdbcType=OTHER}, #{record.parentid,jdbcType=DECIMAL}, #{record.pic,jdbcType=OTHER}, 
+      #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=DECIMAL}, 
+      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripLabelDic" >
-    insert into itrip_label_dic
+    insert into "itrip_label_dic"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.name != null" >
-        name,
+        "name",
       </if>
       <if test="record.value != null" >
-        value,
+        "value",
       </if>
       <if test="record.description != null" >
-        description,
+        "description",
       </if>
       <if test="record.parentid != null" >
-        parentId,
+        "parentId",
       </if>
       <if test="record.pic != null" >
-        pic,
+        "pic",
       </if>
       <if test="record.creationdate != null" >
-        creationDate,
+        "creationDate",
       </if>
       <if test="record.createdby != null" >
-        createdBy,
+        "createdBy",
       </if>
       <if test="record.modifydate != null" >
-        modifyDate,
+        "modifyDate",
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy,
+        "modifiedBy",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.name != null" >
-        #{record.name,jdbcType=VARCHAR},
+        #{record.name,jdbcType=OTHER},
       </if>
       <if test="record.value != null" >
-        #{record.value,jdbcType=VARCHAR},
+        #{record.value,jdbcType=OTHER},
       </if>
       <if test="record.description != null" >
-        #{record.description,jdbcType=VARCHAR},
+        #{record.description,jdbcType=OTHER},
       </if>
       <if test="record.parentid != null" >
-        #{record.parentid,jdbcType=BIGINT},
+        #{record.parentid,jdbcType=DECIMAL},
       </if>
       <if test="record.pic != null" >
-        #{record.pic,jdbcType=VARCHAR},
+        #{record.pic,jdbcType=OTHER},
       </if>
       <if test="record.creationdate != null" >
         #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        #{record.createdby,jdbcType=BIGINT},
+        #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
         #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        #{record.modifiedby,jdbcType=BIGINT},
+        #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripLabelDic" >
-    update itrip_label_dic
+    update "itrip_label_dic"
     <set >
       <if test="record.name != null" >
-        name = #{record.name,jdbcType=VARCHAR},
+        "name" = #{record.name,jdbcType=OTHER},
       </if>
       <if test="record.value != null" >
-        value = #{record.value,jdbcType=VARCHAR},
+        "value" = #{record.value,jdbcType=OTHER},
       </if>
       <if test="record.description != null" >
-        description = #{record.description,jdbcType=VARCHAR},
+        "description" = #{record.description,jdbcType=OTHER},
       </if>
       <if test="record.parentid != null" >
-        parentId = #{record.parentid,jdbcType=BIGINT},
+        "parentId" = #{record.parentid,jdbcType=DECIMAL},
       </if>
       <if test="record.pic != null" >
-        pic = #{record.pic,jdbcType=VARCHAR},
+        "pic" = #{record.pic,jdbcType=OTHER},
       </if>
       <if test="record.creationdate != null" >
-        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+        "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        createdBy = #{record.createdby,jdbcType=BIGINT},
+        "createdBy" = #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
-        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+        "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+        "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripLabelDic" >
-    update itrip_label_dic
-    set name = #{record.name,jdbcType=VARCHAR},
-      value = #{record.value,jdbcType=VARCHAR},
-      description = #{record.description,jdbcType=VARCHAR},
-      parentId = #{record.parentid,jdbcType=BIGINT},
-      pic = #{record.pic,jdbcType=VARCHAR},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_label_dic"
+    set "name" = #{record.name,jdbcType=OTHER},
+      "value" = #{record.value,jdbcType=OTHER},
+      "description" = #{record.description,jdbcType=OTHER},
+      "parentId" = #{record.parentid,jdbcType=DECIMAL},
+      "pic" = #{record.pic,jdbcType=OTHER},
+      "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
 </mapper>

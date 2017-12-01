@@ -2,196 +2,190 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripHotelOrderMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripHotelOrder" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="userId" property="userid" jdbcType="BIGINT" />
-    <result column="orderType" property="ordertype" jdbcType="INTEGER" />
-    <result column="orderNo" property="orderno" jdbcType="VARCHAR" />
-    <result column="tradeNo" property="tradeno" jdbcType="VARCHAR" />
-    <result column="hotelId" property="hotelid" jdbcType="BIGINT" />
-    <result column="hotelName" property="hotelname" jdbcType="VARCHAR" />
-    <result column="roomId" property="roomid" jdbcType="BIGINT" />
-    <result column="count" property="count" jdbcType="INTEGER" />
-    <result column="bookingDays" property="bookingdays" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="userId" property="userid" jdbcType="DECIMAL" />
+    <result column="orderType" property="ordertype" jdbcType="DECIMAL" />
+    <result column="orderNo" property="orderno" jdbcType="OTHER" />
+    <result column="tradeNo" property="tradeno" jdbcType="OTHER" />
+    <result column="hotelId" property="hotelid" jdbcType="DECIMAL" />
+    <result column="hotelName" property="hotelname" jdbcType="OTHER" />
+    <result column="roomId" property="roomid" jdbcType="DECIMAL" />
+    <result column="count" property="count" jdbcType="DECIMAL" />
+    <result column="bookingDays" property="bookingdays" jdbcType="DECIMAL" />
     <result column="checkInDate" property="checkindate" jdbcType="TIMESTAMP" />
     <result column="checkOutDate" property="checkoutdate" jdbcType="TIMESTAMP" />
-    <result column="orderStatus" property="orderstatus" jdbcType="INTEGER" />
+    <result column="orderStatus" property="orderstatus" jdbcType="DECIMAL" />
     <result column="payAmount" property="payamount" jdbcType="DECIMAL" />
-    <result column="payType" property="paytype" jdbcType="INTEGER" />
-    <result column="noticePhone" property="noticephone" jdbcType="VARCHAR" />
-    <result column="noticeEmail" property="noticeemail" jdbcType="VARCHAR" />
-    <result column="isNeedInvoice" property="isneedinvoice" jdbcType="INTEGER" />
-    <result column="invoiceType" property="invoicetype" jdbcType="INTEGER" />
-    <result column="invoiceHead" property="invoicehead" jdbcType="VARCHAR" />
-    <result column="linkUserName" property="linkusername" jdbcType="VARCHAR" />
-    <result column="bookType" property="booktype" jdbcType="INTEGER" />
+    <result column="payType" property="paytype" jdbcType="DECIMAL" />
+    <result column="noticePhone" property="noticephone" jdbcType="OTHER" />
+    <result column="noticeEmail" property="noticeemail" jdbcType="OTHER" />
+    <result column="specialRequirement" property="specialrequirement" jdbcType="OTHER" />
+    <result column="isNeedInvoice" property="isneedinvoice" jdbcType="DECIMAL" />
+    <result column="invoiceType" property="invoicetype" jdbcType="DECIMAL" />
+    <result column="invoiceHead" property="invoicehead" jdbcType="OTHER" />
+    <result column="linkUserName" property="linkusername" jdbcType="OTHER" />
+    <result column="bookType" property="booktype" jdbcType="DECIMAL" />
     <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdby" jdbcType="DECIMAL" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
-    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="cn.itrip.pojo.ItripHotelOrder" extends="BaseResultMap" >
-    <result column="specialRequirement" property="specialrequirement" jdbcType="LONGVARCHAR" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, userId, orderType, orderNo, tradeNo, hotelId, hotelName, roomId, count, bookingDays, 
-    checkInDate, checkOutDate, orderStatus, payAmount, payType, noticePhone, noticeEmail, 
-    isNeedInvoice, invoiceType, invoiceHead, linkUserName, bookType, creationDate, createdBy, 
-    modifyDate, modifiedBy
+    "id", "userId", "orderType", "orderNo", "tradeNo", "hotelId", "hotelName", "roomId", 
+    "count", "bookingDays", "checkInDate", "checkOutDate", "orderStatus", "payAmount", 
+    "payType", "noticePhone", "noticeEmail", "specialRequirement", "isNeedInvoice", "invoiceType", 
+    "invoiceHead", "linkUserName", "bookType", "creationDate", "createdBy", "modifyDate", 
+    "modifiedBy"
   </sql>
-  <sql id="Blob_Column_List" >
-    specialRequirement
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from itrip_hotel_order
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_hotel_order"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_hotel_order
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_hotel_order"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripHotelOrder" >
-    insert into itrip_hotel_order (id, userId, orderType, 
-      orderNo, tradeNo, hotelId, 
-      hotelName, roomId, count, 
-      bookingDays, checkInDate, 
-      checkOutDate, orderStatus, 
-      payAmount, payType, noticePhone, 
-      noticeEmail, isNeedInvoice, 
-      invoiceType, invoiceHead, 
-      linkUserName, bookType, creationDate, 
-      createdBy, modifyDate, modifiedBy, 
-      specialRequirement)
-    values (#{record.id,jdbcType=BIGINT}, #{record.userid,jdbcType=BIGINT}, #{record.ordertype,jdbcType=INTEGER}, 
-      #{record.orderno,jdbcType=VARCHAR}, #{record.tradeno,jdbcType=VARCHAR}, #{record.hotelid,jdbcType=BIGINT}, 
-      #{record.hotelname,jdbcType=VARCHAR}, #{record.roomid,jdbcType=BIGINT}, #{record.count,jdbcType=INTEGER}, 
-      #{record.bookingdays,jdbcType=INTEGER}, #{record.checkindate,jdbcType=TIMESTAMP}, 
-      #{record.checkoutdate,jdbcType=TIMESTAMP}, #{record.orderstatus,jdbcType=INTEGER}, 
-      #{record.payamount,jdbcType=DECIMAL}, #{record.paytype,jdbcType=INTEGER}, #{record.noticephone,jdbcType=VARCHAR}, 
-      #{record.noticeemail,jdbcType=VARCHAR}, #{record.isneedinvoice,jdbcType=INTEGER}, 
-      #{record.invoicetype,jdbcType=INTEGER}, #{record.invoicehead,jdbcType=VARCHAR}, 
-      #{record.linkusername,jdbcType=VARCHAR}, #{record.booktype,jdbcType=INTEGER}, #{record.creationdate,jdbcType=TIMESTAMP}, 
-      #{record.createdby,jdbcType=BIGINT}, #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT}, 
-      #{record.specialrequirement,jdbcType=LONGVARCHAR})
+    insert into "itrip_hotel_order" ("id", "userId", "orderType", 
+      "orderNo", "tradeNo", "hotelId", 
+      "hotelName", "roomId", "count", 
+      "bookingDays", "checkInDate", 
+      "checkOutDate", "orderStatus", 
+      "payAmount", "payType", "noticePhone", 
+      "noticeEmail", "specialRequirement", 
+      "isNeedInvoice", "invoiceType", 
+      "invoiceHead", "linkUserName", "bookType", 
+      "creationDate", "createdBy", 
+      "modifyDate", "modifiedBy")
+    values (#{record.id,jdbcType=DECIMAL}, #{record.userid,jdbcType=DECIMAL}, #{record.ordertype,jdbcType=DECIMAL}, 
+      #{record.orderno,jdbcType=OTHER}, #{record.tradeno,jdbcType=OTHER}, #{record.hotelid,jdbcType=DECIMAL}, 
+      #{record.hotelname,jdbcType=OTHER}, #{record.roomid,jdbcType=DECIMAL}, #{record.count,jdbcType=DECIMAL}, 
+      #{record.bookingdays,jdbcType=DECIMAL}, #{record.checkindate,jdbcType=TIMESTAMP}, 
+      #{record.checkoutdate,jdbcType=TIMESTAMP}, #{record.orderstatus,jdbcType=DECIMAL}, 
+      #{record.payamount,jdbcType=DECIMAL}, #{record.paytype,jdbcType=DECIMAL}, #{record.noticephone,jdbcType=OTHER}, 
+      #{record.noticeemail,jdbcType=OTHER}, #{record.specialrequirement,jdbcType=OTHER}, 
+      #{record.isneedinvoice,jdbcType=DECIMAL}, #{record.invoicetype,jdbcType=DECIMAL}, 
+      #{record.invoicehead,jdbcType=OTHER}, #{record.linkusername,jdbcType=OTHER}, #{record.booktype,jdbcType=DECIMAL}, 
+      #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=DECIMAL}, 
+      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripHotelOrder" >
-    insert into itrip_hotel_order
+    insert into "itrip_hotel_order"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.userid != null" >
-        userId,
+        "userId",
       </if>
       <if test="record.ordertype != null" >
-        orderType,
+        "orderType",
       </if>
       <if test="record.orderno != null" >
-        orderNo,
+        "orderNo",
       </if>
       <if test="record.tradeno != null" >
-        tradeNo,
+        "tradeNo",
       </if>
       <if test="record.hotelid != null" >
-        hotelId,
+        "hotelId",
       </if>
       <if test="record.hotelname != null" >
-        hotelName,
+        "hotelName",
       </if>
       <if test="record.roomid != null" >
-        roomId,
+        "roomId",
       </if>
       <if test="record.count != null" >
-        count,
+        "count",
       </if>
       <if test="record.bookingdays != null" >
-        bookingDays,
+        "bookingDays",
       </if>
       <if test="record.checkindate != null" >
-        checkInDate,
+        "checkInDate",
       </if>
       <if test="record.checkoutdate != null" >
-        checkOutDate,
+        "checkOutDate",
       </if>
       <if test="record.orderstatus != null" >
-        orderStatus,
+        "orderStatus",
       </if>
       <if test="record.payamount != null" >
-        payAmount,
+        "payAmount",
       </if>
       <if test="record.paytype != null" >
-        payType,
+        "payType",
       </if>
       <if test="record.noticephone != null" >
-        noticePhone,
+        "noticePhone",
       </if>
       <if test="record.noticeemail != null" >
-        noticeEmail,
-      </if>
-      <if test="record.isneedinvoice != null" >
-        isNeedInvoice,
-      </if>
-      <if test="record.invoicetype != null" >
-        invoiceType,
-      </if>
-      <if test="record.invoicehead != null" >
-        invoiceHead,
-      </if>
-      <if test="record.linkusername != null" >
-        linkUserName,
-      </if>
-      <if test="record.booktype != null" >
-        bookType,
-      </if>
-      <if test="record.creationdate != null" >
-        creationDate,
-      </if>
-      <if test="record.createdby != null" >
-        createdBy,
-      </if>
-      <if test="record.modifydate != null" >
-        modifyDate,
-      </if>
-      <if test="record.modifiedby != null" >
-        modifiedBy,
+        "noticeEmail",
       </if>
       <if test="record.specialrequirement != null" >
-        specialRequirement,
+        "specialRequirement",
+      </if>
+      <if test="record.isneedinvoice != null" >
+        "isNeedInvoice",
+      </if>
+      <if test="record.invoicetype != null" >
+        "invoiceType",
+      </if>
+      <if test="record.invoicehead != null" >
+        "invoiceHead",
+      </if>
+      <if test="record.linkusername != null" >
+        "linkUserName",
+      </if>
+      <if test="record.booktype != null" >
+        "bookType",
+      </if>
+      <if test="record.creationdate != null" >
+        "creationDate",
+      </if>
+      <if test="record.createdby != null" >
+        "createdBy",
+      </if>
+      <if test="record.modifydate != null" >
+        "modifyDate",
+      </if>
+      <if test="record.modifiedby != null" >
+        "modifiedBy",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.userid != null" >
-        #{record.userid,jdbcType=BIGINT},
+        #{record.userid,jdbcType=DECIMAL},
       </if>
       <if test="record.ordertype != null" >
-        #{record.ordertype,jdbcType=INTEGER},
+        #{record.ordertype,jdbcType=DECIMAL},
       </if>
       <if test="record.orderno != null" >
-        #{record.orderno,jdbcType=VARCHAR},
+        #{record.orderno,jdbcType=OTHER},
       </if>
       <if test="record.tradeno != null" >
-        #{record.tradeno,jdbcType=VARCHAR},
+        #{record.tradeno,jdbcType=OTHER},
       </if>
       <if test="record.hotelid != null" >
-        #{record.hotelid,jdbcType=BIGINT},
+        #{record.hotelid,jdbcType=DECIMAL},
       </if>
       <if test="record.hotelname != null" >
-        #{record.hotelname,jdbcType=VARCHAR},
+        #{record.hotelname,jdbcType=OTHER},
       </if>
       <if test="record.roomid != null" >
-        #{record.roomid,jdbcType=BIGINT},
+        #{record.roomid,jdbcType=DECIMAL},
       </if>
       <if test="record.count != null" >
-        #{record.count,jdbcType=INTEGER},
+        #{record.count,jdbcType=DECIMAL},
       </if>
       <if test="record.bookingdays != null" >
-        #{record.bookingdays,jdbcType=INTEGER},
+        #{record.bookingdays,jdbcType=DECIMAL},
       </if>
       <if test="record.checkindate != null" >
         #{record.checkindate,jdbcType=TIMESTAMP},
@@ -200,193 +194,164 @@
         #{record.checkoutdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.orderstatus != null" >
-        #{record.orderstatus,jdbcType=INTEGER},
+        #{record.orderstatus,jdbcType=DECIMAL},
       </if>
       <if test="record.payamount != null" >
         #{record.payamount,jdbcType=DECIMAL},
       </if>
       <if test="record.paytype != null" >
-        #{record.paytype,jdbcType=INTEGER},
+        #{record.paytype,jdbcType=DECIMAL},
       </if>
       <if test="record.noticephone != null" >
-        #{record.noticephone,jdbcType=VARCHAR},
+        #{record.noticephone,jdbcType=OTHER},
       </if>
       <if test="record.noticeemail != null" >
-        #{record.noticeemail,jdbcType=VARCHAR},
+        #{record.noticeemail,jdbcType=OTHER},
+      </if>
+      <if test="record.specialrequirement != null" >
+        #{record.specialrequirement,jdbcType=OTHER},
       </if>
       <if test="record.isneedinvoice != null" >
-        #{record.isneedinvoice,jdbcType=INTEGER},
+        #{record.isneedinvoice,jdbcType=DECIMAL},
       </if>
       <if test="record.invoicetype != null" >
-        #{record.invoicetype,jdbcType=INTEGER},
+        #{record.invoicetype,jdbcType=DECIMAL},
       </if>
       <if test="record.invoicehead != null" >
-        #{record.invoicehead,jdbcType=VARCHAR},
+        #{record.invoicehead,jdbcType=OTHER},
       </if>
       <if test="record.linkusername != null" >
-        #{record.linkusername,jdbcType=VARCHAR},
+        #{record.linkusername,jdbcType=OTHER},
       </if>
       <if test="record.booktype != null" >
-        #{record.booktype,jdbcType=INTEGER},
+        #{record.booktype,jdbcType=DECIMAL},
       </if>
       <if test="record.creationdate != null" >
         #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        #{record.createdby,jdbcType=BIGINT},
+        #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
         #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        #{record.modifiedby,jdbcType=BIGINT},
-      </if>
-      <if test="record.specialrequirement != null" >
-        #{record.specialrequirement,jdbcType=LONGVARCHAR},
+        #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripHotelOrder" >
-    update itrip_hotel_order
+    update "itrip_hotel_order"
     <set >
       <if test="record.userid != null" >
-        userId = #{record.userid,jdbcType=BIGINT},
+        "userId" = #{record.userid,jdbcType=DECIMAL},
       </if>
       <if test="record.ordertype != null" >
-        orderType = #{record.ordertype,jdbcType=INTEGER},
+        "orderType" = #{record.ordertype,jdbcType=DECIMAL},
       </if>
       <if test="record.orderno != null" >
-        orderNo = #{record.orderno,jdbcType=VARCHAR},
+        "orderNo" = #{record.orderno,jdbcType=OTHER},
       </if>
       <if test="record.tradeno != null" >
-        tradeNo = #{record.tradeno,jdbcType=VARCHAR},
+        "tradeNo" = #{record.tradeno,jdbcType=OTHER},
       </if>
       <if test="record.hotelid != null" >
-        hotelId = #{record.hotelid,jdbcType=BIGINT},
+        "hotelId" = #{record.hotelid,jdbcType=DECIMAL},
       </if>
       <if test="record.hotelname != null" >
-        hotelName = #{record.hotelname,jdbcType=VARCHAR},
+        "hotelName" = #{record.hotelname,jdbcType=OTHER},
       </if>
       <if test="record.roomid != null" >
-        roomId = #{record.roomid,jdbcType=BIGINT},
+        "roomId" = #{record.roomid,jdbcType=DECIMAL},
       </if>
       <if test="record.count != null" >
-        count = #{record.count,jdbcType=INTEGER},
+        "count" = #{record.count,jdbcType=DECIMAL},
       </if>
       <if test="record.bookingdays != null" >
-        bookingDays = #{record.bookingdays,jdbcType=INTEGER},
+        "bookingDays" = #{record.bookingdays,jdbcType=DECIMAL},
       </if>
       <if test="record.checkindate != null" >
-        checkInDate = #{record.checkindate,jdbcType=TIMESTAMP},
+        "checkInDate" = #{record.checkindate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.checkoutdate != null" >
-        checkOutDate = #{record.checkoutdate,jdbcType=TIMESTAMP},
+        "checkOutDate" = #{record.checkoutdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.orderstatus != null" >
-        orderStatus = #{record.orderstatus,jdbcType=INTEGER},
+        "orderStatus" = #{record.orderstatus,jdbcType=DECIMAL},
       </if>
       <if test="record.payamount != null" >
-        payAmount = #{record.payamount,jdbcType=DECIMAL},
+        "payAmount" = #{record.payamount,jdbcType=DECIMAL},
       </if>
       <if test="record.paytype != null" >
-        payType = #{record.paytype,jdbcType=INTEGER},
+        "payType" = #{record.paytype,jdbcType=DECIMAL},
       </if>
       <if test="record.noticephone != null" >
-        noticePhone = #{record.noticephone,jdbcType=VARCHAR},
+        "noticePhone" = #{record.noticephone,jdbcType=OTHER},
       </if>
       <if test="record.noticeemail != null" >
-        noticeEmail = #{record.noticeemail,jdbcType=VARCHAR},
-      </if>
-      <if test="record.isneedinvoice != null" >
-        isNeedInvoice = #{record.isneedinvoice,jdbcType=INTEGER},
-      </if>
-      <if test="record.invoicetype != null" >
-        invoiceType = #{record.invoicetype,jdbcType=INTEGER},
-      </if>
-      <if test="record.invoicehead != null" >
-        invoiceHead = #{record.invoicehead,jdbcType=VARCHAR},
-      </if>
-      <if test="record.linkusername != null" >
-        linkUserName = #{record.linkusername,jdbcType=VARCHAR},
-      </if>
-      <if test="record.booktype != null" >
-        bookType = #{record.booktype,jdbcType=INTEGER},
-      </if>
-      <if test="record.creationdate != null" >
-        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.createdby != null" >
-        createdBy = #{record.createdby,jdbcType=BIGINT},
-      </if>
-      <if test="record.modifydate != null" >
-        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.modifiedby != null" >
-        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+        "noticeEmail" = #{record.noticeemail,jdbcType=OTHER},
       </if>
       <if test="record.specialrequirement != null" >
-        specialRequirement = #{record.specialrequirement,jdbcType=LONGVARCHAR},
+        "specialRequirement" = #{record.specialrequirement,jdbcType=OTHER},
+      </if>
+      <if test="record.isneedinvoice != null" >
+        "isNeedInvoice" = #{record.isneedinvoice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.invoicetype != null" >
+        "invoiceType" = #{record.invoicetype,jdbcType=DECIMAL},
+      </if>
+      <if test="record.invoicehead != null" >
+        "invoiceHead" = #{record.invoicehead,jdbcType=OTHER},
+      </if>
+      <if test="record.linkusername != null" >
+        "linkUserName" = #{record.linkusername,jdbcType=OTHER},
+      </if>
+      <if test="record.booktype != null" >
+        "bookType" = #{record.booktype,jdbcType=DECIMAL},
+      </if>
+      <if test="record.creationdate != null" >
+        "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdby != null" >
+        "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      </if>
+      <if test="record.modifydate != null" >
+        "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedby != null" >
+        "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.itrip.pojo.ItripHotelOrder" >
-    update itrip_hotel_order
-    set userId = #{record.userid,jdbcType=BIGINT},
-      orderType = #{record.ordertype,jdbcType=INTEGER},
-      orderNo = #{record.orderno,jdbcType=VARCHAR},
-      tradeNo = #{record.tradeno,jdbcType=VARCHAR},
-      hotelId = #{record.hotelid,jdbcType=BIGINT},
-      hotelName = #{record.hotelname,jdbcType=VARCHAR},
-      roomId = #{record.roomid,jdbcType=BIGINT},
-      count = #{record.count,jdbcType=INTEGER},
-      bookingDays = #{record.bookingdays,jdbcType=INTEGER},
-      checkInDate = #{record.checkindate,jdbcType=TIMESTAMP},
-      checkOutDate = #{record.checkoutdate,jdbcType=TIMESTAMP},
-      orderStatus = #{record.orderstatus,jdbcType=INTEGER},
-      payAmount = #{record.payamount,jdbcType=DECIMAL},
-      payType = #{record.paytype,jdbcType=INTEGER},
-      noticePhone = #{record.noticephone,jdbcType=VARCHAR},
-      noticeEmail = #{record.noticeemail,jdbcType=VARCHAR},
-      isNeedInvoice = #{record.isneedinvoice,jdbcType=INTEGER},
-      invoiceType = #{record.invoicetype,jdbcType=INTEGER},
-      invoiceHead = #{record.invoicehead,jdbcType=VARCHAR},
-      linkUserName = #{record.linkusername,jdbcType=VARCHAR},
-      bookType = #{record.booktype,jdbcType=INTEGER},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
-      specialRequirement = #{record.specialrequirement,jdbcType=LONGVARCHAR}
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripHotelOrder" >
-    update itrip_hotel_order
-    set userId = #{record.userid,jdbcType=BIGINT},
-      orderType = #{record.ordertype,jdbcType=INTEGER},
-      orderNo = #{record.orderno,jdbcType=VARCHAR},
-      tradeNo = #{record.tradeno,jdbcType=VARCHAR},
-      hotelId = #{record.hotelid,jdbcType=BIGINT},
-      hotelName = #{record.hotelname,jdbcType=VARCHAR},
-      roomId = #{record.roomid,jdbcType=BIGINT},
-      count = #{record.count,jdbcType=INTEGER},
-      bookingDays = #{record.bookingdays,jdbcType=INTEGER},
-      checkInDate = #{record.checkindate,jdbcType=TIMESTAMP},
-      checkOutDate = #{record.checkoutdate,jdbcType=TIMESTAMP},
-      orderStatus = #{record.orderstatus,jdbcType=INTEGER},
-      payAmount = #{record.payamount,jdbcType=DECIMAL},
-      payType = #{record.paytype,jdbcType=INTEGER},
-      noticePhone = #{record.noticephone,jdbcType=VARCHAR},
-      noticeEmail = #{record.noticeemail,jdbcType=VARCHAR},
-      isNeedInvoice = #{record.isneedinvoice,jdbcType=INTEGER},
-      invoiceType = #{record.invoicetype,jdbcType=INTEGER},
-      invoiceHead = #{record.invoicehead,jdbcType=VARCHAR},
-      linkUserName = #{record.linkusername,jdbcType=VARCHAR},
-      bookType = #{record.booktype,jdbcType=INTEGER},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_hotel_order"
+    set "userId" = #{record.userid,jdbcType=DECIMAL},
+      "orderType" = #{record.ordertype,jdbcType=DECIMAL},
+      "orderNo" = #{record.orderno,jdbcType=OTHER},
+      "tradeNo" = #{record.tradeno,jdbcType=OTHER},
+      "hotelId" = #{record.hotelid,jdbcType=DECIMAL},
+      "hotelName" = #{record.hotelname,jdbcType=OTHER},
+      "roomId" = #{record.roomid,jdbcType=DECIMAL},
+      "count" = #{record.count,jdbcType=DECIMAL},
+      "bookingDays" = #{record.bookingdays,jdbcType=DECIMAL},
+      "checkInDate" = #{record.checkindate,jdbcType=TIMESTAMP},
+      "checkOutDate" = #{record.checkoutdate,jdbcType=TIMESTAMP},
+      "orderStatus" = #{record.orderstatus,jdbcType=DECIMAL},
+      "payAmount" = #{record.payamount,jdbcType=DECIMAL},
+      "payType" = #{record.paytype,jdbcType=DECIMAL},
+      "noticePhone" = #{record.noticephone,jdbcType=OTHER},
+      "noticeEmail" = #{record.noticeemail,jdbcType=OTHER},
+      "specialRequirement" = #{record.specialrequirement,jdbcType=OTHER},
+      "isNeedInvoice" = #{record.isneedinvoice,jdbcType=DECIMAL},
+      "invoiceType" = #{record.invoicetype,jdbcType=DECIMAL},
+      "invoiceHead" = #{record.invoicehead,jdbcType=OTHER},
+      "linkUserName" = #{record.linkusername,jdbcType=OTHER},
+      "bookType" = #{record.booktype,jdbcType=DECIMAL},
+      "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
 </mapper>

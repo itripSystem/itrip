@@ -1,21 +1,19 @@
 package cn.itrip.dao;
 
 import cn.itrip.pojo.ItripHotel;
-import cn.itrip.pojo.ItripHotelWithBLOBs;
+import java.math.BigDecimal;
 import org.apache.ibatis.annotations.Param;
 
 public interface ItripHotelMapper {
-    int deleteByPrimaryKey(@Param("id") Long id);
+    int deleteByPrimaryKey(@Param("id") BigDecimal id);
 
-    int insert(@Param("record") ItripHotelWithBLOBs record);
+    int insert(@Param("record") ItripHotel record);
 
-    int insertSelective(@Param("record") ItripHotelWithBLOBs record);
+    int insertSelective(@Param("record") ItripHotel record);
 
-    ItripHotelWithBLOBs selectByPrimaryKey(@Param("id") Long id);
+    ItripHotel selectByPrimaryKey(@Param("id") BigDecimal id);
 
-    int updateByPrimaryKeySelective(@Param("record") ItripHotelWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(@Param("record") ItripHotelWithBLOBs record);
+    int updateByPrimaryKeySelective(@Param("record") ItripHotel record);
 
     int updateByPrimaryKey(@Param("record") ItripHotel record);
 }

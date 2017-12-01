@@ -68,6 +68,14 @@
 		</property>
 	</bean>
 	<!-- 配置拦截器 -->
+	<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/manager/backend/**"/>
+			<mvc:mapping path="/dev/flatform/**"/>
+			<bean class="cn.itrip.interceptor.SysInterceptor"/>
+		</mvc:interceptor>
+		
+	</mvc:interceptors> -->
 
 	<!-- 配置文件上传 MultipartResolver -->
 	<bean id="multipartResolver"

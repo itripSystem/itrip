@@ -2,198 +2,198 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripAreaDicMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripAreaDic" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="areaNo" property="areano" jdbcType="VARCHAR" />
-    <result column="parent" property="parent" jdbcType="BIGINT" />
-    <result column="isActivated" property="isactivated" jdbcType="INTEGER" />
-    <result column="isTradingArea" property="istradingarea" jdbcType="INTEGER" />
-    <result column="isHot" property="ishot" jdbcType="INTEGER" />
-    <result column="level" property="level" jdbcType="INTEGER" />
-    <result column="isChina" property="ischina" jdbcType="INTEGER" />
-    <result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="name" property="name" jdbcType="OTHER" />
+    <result column="areaNo" property="areano" jdbcType="OTHER" />
+    <result column="parent" property="parent" jdbcType="DECIMAL" />
+    <result column="isActivated" property="isactivated" jdbcType="DECIMAL" />
+    <result column="isTradingArea" property="istradingarea" jdbcType="DECIMAL" />
+    <result column="isHot" property="ishot" jdbcType="DECIMAL" />
+    <result column="level" property="level" jdbcType="DECIMAL" />
+    <result column="isChina" property="ischina" jdbcType="DECIMAL" />
+    <result column="pinyin" property="pinyin" jdbcType="OTHER" />
     <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdby" jdbcType="DECIMAL" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
-    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, areaNo, parent, isActivated, isTradingArea, isHot, level, isChina, pinyin, 
-    creationDate, createdBy, modifyDate, modifiedBy
+    "id", "name", "areaNo", "parent", "isActivated", "isTradingArea", "isHot", "level", 
+    "isChina", "pinyin", "creationDate", "createdBy", "modifyDate", "modifiedBy"
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    from itrip_area_dic
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_area_dic"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_area_dic
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_area_dic"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripAreaDic" >
-    insert into itrip_area_dic (id, name, areaNo, 
-      parent, isActivated, isTradingArea, 
-      isHot, level, isChina, 
-      pinyin, creationDate, createdBy, 
-      modifyDate, modifiedBy)
-    values (#{record.id,jdbcType=BIGINT}, #{record.name,jdbcType=VARCHAR}, #{record.areano,jdbcType=VARCHAR}, 
-      #{record.parent,jdbcType=BIGINT}, #{record.isactivated,jdbcType=INTEGER}, #{record.istradingarea,jdbcType=INTEGER}, 
-      #{record.ishot,jdbcType=INTEGER}, #{record.level,jdbcType=INTEGER}, #{record.ischina,jdbcType=INTEGER}, 
-      #{record.pinyin,jdbcType=VARCHAR}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=BIGINT}, 
-      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT})
+    insert into "itrip_area_dic" ("id", "name", "areaNo", 
+      "parent", "isActivated", "isTradingArea", 
+      "isHot", "level", "isChina", 
+      "pinyin", "creationDate", "createdBy", 
+      "modifyDate", "modifiedBy")
+    values (#{record.id,jdbcType=DECIMAL}, #{record.name,jdbcType=OTHER}, #{record.areano,jdbcType=OTHER}, 
+      #{record.parent,jdbcType=DECIMAL}, #{record.isactivated,jdbcType=DECIMAL}, #{record.istradingarea,jdbcType=DECIMAL}, 
+      #{record.ishot,jdbcType=DECIMAL}, #{record.level,jdbcType=DECIMAL}, #{record.ischina,jdbcType=DECIMAL}, 
+      #{record.pinyin,jdbcType=OTHER}, #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=DECIMAL}, 
+      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripAreaDic" >
-    insert into itrip_area_dic
+    insert into "itrip_area_dic"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.name != null" >
-        name,
+        "name",
       </if>
       <if test="record.areano != null" >
-        areaNo,
+        "areaNo",
       </if>
       <if test="record.parent != null" >
-        parent,
+        "parent",
       </if>
       <if test="record.isactivated != null" >
-        isActivated,
+        "isActivated",
       </if>
       <if test="record.istradingarea != null" >
-        isTradingArea,
+        "isTradingArea",
       </if>
       <if test="record.ishot != null" >
-        isHot,
+        "isHot",
       </if>
       <if test="record.level != null" >
-        level,
+        "level",
       </if>
       <if test="record.ischina != null" >
-        isChina,
+        "isChina",
       </if>
       <if test="record.pinyin != null" >
-        pinyin,
+        "pinyin",
       </if>
       <if test="record.creationdate != null" >
-        creationDate,
+        "creationDate",
       </if>
       <if test="record.createdby != null" >
-        createdBy,
+        "createdBy",
       </if>
       <if test="record.modifydate != null" >
-        modifyDate,
+        "modifyDate",
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy,
+        "modifiedBy",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.name != null" >
-        #{record.name,jdbcType=VARCHAR},
+        #{record.name,jdbcType=OTHER},
       </if>
       <if test="record.areano != null" >
-        #{record.areano,jdbcType=VARCHAR},
+        #{record.areano,jdbcType=OTHER},
       </if>
       <if test="record.parent != null" >
-        #{record.parent,jdbcType=BIGINT},
+        #{record.parent,jdbcType=DECIMAL},
       </if>
       <if test="record.isactivated != null" >
-        #{record.isactivated,jdbcType=INTEGER},
+        #{record.isactivated,jdbcType=DECIMAL},
       </if>
       <if test="record.istradingarea != null" >
-        #{record.istradingarea,jdbcType=INTEGER},
+        #{record.istradingarea,jdbcType=DECIMAL},
       </if>
       <if test="record.ishot != null" >
-        #{record.ishot,jdbcType=INTEGER},
+        #{record.ishot,jdbcType=DECIMAL},
       </if>
       <if test="record.level != null" >
-        #{record.level,jdbcType=INTEGER},
+        #{record.level,jdbcType=DECIMAL},
       </if>
       <if test="record.ischina != null" >
-        #{record.ischina,jdbcType=INTEGER},
+        #{record.ischina,jdbcType=DECIMAL},
       </if>
       <if test="record.pinyin != null" >
-        #{record.pinyin,jdbcType=VARCHAR},
+        #{record.pinyin,jdbcType=OTHER},
       </if>
       <if test="record.creationdate != null" >
         #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        #{record.createdby,jdbcType=BIGINT},
+        #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
         #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        #{record.modifiedby,jdbcType=BIGINT},
+        #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripAreaDic" >
-    update itrip_area_dic
+    update "itrip_area_dic"
     <set >
       <if test="record.name != null" >
-        name = #{record.name,jdbcType=VARCHAR},
+        "name" = #{record.name,jdbcType=OTHER},
       </if>
       <if test="record.areano != null" >
-        areaNo = #{record.areano,jdbcType=VARCHAR},
+        "areaNo" = #{record.areano,jdbcType=OTHER},
       </if>
       <if test="record.parent != null" >
-        parent = #{record.parent,jdbcType=BIGINT},
+        "parent" = #{record.parent,jdbcType=DECIMAL},
       </if>
       <if test="record.isactivated != null" >
-        isActivated = #{record.isactivated,jdbcType=INTEGER},
+        "isActivated" = #{record.isactivated,jdbcType=DECIMAL},
       </if>
       <if test="record.istradingarea != null" >
-        isTradingArea = #{record.istradingarea,jdbcType=INTEGER},
+        "isTradingArea" = #{record.istradingarea,jdbcType=DECIMAL},
       </if>
       <if test="record.ishot != null" >
-        isHot = #{record.ishot,jdbcType=INTEGER},
+        "isHot" = #{record.ishot,jdbcType=DECIMAL},
       </if>
       <if test="record.level != null" >
-        level = #{record.level,jdbcType=INTEGER},
+        "level" = #{record.level,jdbcType=DECIMAL},
       </if>
       <if test="record.ischina != null" >
-        isChina = #{record.ischina,jdbcType=INTEGER},
+        "isChina" = #{record.ischina,jdbcType=DECIMAL},
       </if>
       <if test="record.pinyin != null" >
-        pinyin = #{record.pinyin,jdbcType=VARCHAR},
+        "pinyin" = #{record.pinyin,jdbcType=OTHER},
       </if>
       <if test="record.creationdate != null" >
-        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+        "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        createdBy = #{record.createdby,jdbcType=BIGINT},
+        "createdBy" = #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
-        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+        "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+        "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripAreaDic" >
-    update itrip_area_dic
-    set name = #{record.name,jdbcType=VARCHAR},
-      areaNo = #{record.areano,jdbcType=VARCHAR},
-      parent = #{record.parent,jdbcType=BIGINT},
-      isActivated = #{record.isactivated,jdbcType=INTEGER},
-      isTradingArea = #{record.istradingarea,jdbcType=INTEGER},
-      isHot = #{record.ishot,jdbcType=INTEGER},
-      level = #{record.level,jdbcType=INTEGER},
-      isChina = #{record.ischina,jdbcType=INTEGER},
-      pinyin = #{record.pinyin,jdbcType=VARCHAR},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_area_dic"
+    set "name" = #{record.name,jdbcType=OTHER},
+      "areaNo" = #{record.areano,jdbcType=OTHER},
+      "parent" = #{record.parent,jdbcType=DECIMAL},
+      "isActivated" = #{record.isactivated,jdbcType=DECIMAL},
+      "isTradingArea" = #{record.istradingarea,jdbcType=DECIMAL},
+      "isHot" = #{record.ishot,jdbcType=DECIMAL},
+      "level" = #{record.level,jdbcType=DECIMAL},
+      "isChina" = #{record.ischina,jdbcType=DECIMAL},
+      "pinyin" = #{record.pinyin,jdbcType=OTHER},
+      "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
 </mapper>

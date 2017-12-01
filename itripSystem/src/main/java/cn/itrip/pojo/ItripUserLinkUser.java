@@ -1,65 +1,66 @@
 package cn.itrip.pojo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripUserLinkUser {
-    private Long id;
+    private BigDecimal id;
 
-    private String linkusername;
+    private Object linkusername;
 
-    private String linkidcard;
+    private Object linkidcard;
 
-    private String linkphone;
+    private Object linkphone;
 
-    private Integer userid;
+    private Long userid;
 
     private Date creationdate;
 
-    private Long createdby;
+    private BigDecimal createdby;
 
     private Date modifydate;
 
-    private Long modifiedby;
+    private BigDecimal modifiedby;
 
-    private Integer linkidcardtype;
+    private Long linkidcardtype;
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public String getLinkusername() {
+    public Object getLinkusername() {
         return linkusername;
     }
 
-    public void setLinkusername(String linkusername) {
-        this.linkusername = linkusername == null ? null : linkusername.trim();
+    public void setLinkusername(Object linkusername) {
+        this.linkusername = linkusername;
     }
 
-    public String getLinkidcard() {
+    public Object getLinkidcard() {
         return linkidcard;
     }
 
-    public void setLinkidcard(String linkidcard) {
-        this.linkidcard = linkidcard == null ? null : linkidcard.trim();
+    public void setLinkidcard(Object linkidcard) {
+        this.linkidcard = linkidcard;
     }
 
-    public String getLinkphone() {
+    public Object getLinkphone() {
         return linkphone;
     }
 
-    public void setLinkphone(String linkphone) {
-        this.linkphone = linkphone == null ? null : linkphone.trim();
+    public void setLinkphone(Object linkphone) {
+        this.linkphone = linkphone;
     }
 
-    public Integer getUserid() {
+    public Long getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 
@@ -71,11 +72,11 @@ public class ItripUserLinkUser {
         this.creationdate = creationdate;
     }
 
-    public Long getCreatedby() {
+    public BigDecimal getCreatedby() {
         return createdby;
     }
 
-    public void setCreatedby(Long createdby) {
+    public void setCreatedby(BigDecimal createdby) {
         this.createdby = createdby;
     }
 
@@ -87,19 +88,19 @@ public class ItripUserLinkUser {
         this.modifydate = modifydate;
     }
 
-    public Long getModifiedby() {
+    public BigDecimal getModifiedby() {
         return modifiedby;
     }
 
-    public void setModifiedby(Long modifiedby) {
+    public void setModifiedby(BigDecimal modifiedby) {
         this.modifiedby = modifiedby;
     }
 
-    public Integer getLinkidcardtype() {
+    public Long getLinkidcardtype() {
         return linkidcardtype;
     }
 
-    public void setLinkidcardtype(Integer linkidcardtype) {
+    public void setLinkidcardtype(Long linkidcardtype) {
         this.linkidcardtype = linkidcardtype;
     }
 }

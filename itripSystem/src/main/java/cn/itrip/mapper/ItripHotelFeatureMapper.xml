@@ -2,116 +2,116 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itrip.dao.ItripHotelFeatureMapper" >
   <resultMap id="BaseResultMap" type="cn.itrip.pojo.ItripHotelFeature" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="hotelId" property="hotelid" jdbcType="BIGINT" />
-    <result column="featureId" property="featureid" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="hotelId" property="hotelid" jdbcType="DECIMAL" />
+    <result column="featureId" property="featureid" jdbcType="DECIMAL" />
     <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
-    <result column="createdBy" property="createdby" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdby" jdbcType="DECIMAL" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
-    <result column="modifiedBy" property="modifiedby" jdbcType="BIGINT" />
+    <result column="modifiedBy" property="modifiedby" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, hotelId, featureId, creationDate, createdBy, modifyDate, modifiedBy
+    "id", "hotelId", "featureId", "creationDate", "createdBy", "modifyDate", "modifiedBy"
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
     select 
     <include refid="Base_Column_List" />
-    from itrip_hotel_feature
-    where id = #{id,jdbcType=BIGINT}
+    from "itrip_hotel_feature"
+    where "id" = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from itrip_hotel_feature
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from "itrip_hotel_feature"
+    where "id" = #{id,jdbcType=DECIMAL}
   </delete>
   <insert id="insert" parameterType="cn.itrip.pojo.ItripHotelFeature" >
-    insert into itrip_hotel_feature (id, hotelId, featureId, 
-      creationDate, createdBy, 
-      modifyDate, modifiedBy)
-    values (#{record.id,jdbcType=BIGINT}, #{record.hotelid,jdbcType=BIGINT}, #{record.featureid,jdbcType=BIGINT}, 
-      #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=BIGINT}, 
-      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=BIGINT})
+    insert into "itrip_hotel_feature" ("id", "hotelId", "featureId", 
+      "creationDate", "createdBy", 
+      "modifyDate", "modifiedBy")
+    values (#{record.id,jdbcType=DECIMAL}, #{record.hotelid,jdbcType=DECIMAL}, #{record.featureid,jdbcType=DECIMAL}, 
+      #{record.creationdate,jdbcType=TIMESTAMP}, #{record.createdby,jdbcType=DECIMAL}, 
+      #{record.modifydate,jdbcType=TIMESTAMP}, #{record.modifiedby,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.itrip.pojo.ItripHotelFeature" >
-    insert into itrip_hotel_feature
+    insert into "itrip_hotel_feature"
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        id,
+        "id",
       </if>
       <if test="record.hotelid != null" >
-        hotelId,
+        "hotelId",
       </if>
       <if test="record.featureid != null" >
-        featureId,
+        "featureId",
       </if>
       <if test="record.creationdate != null" >
-        creationDate,
+        "creationDate",
       </if>
       <if test="record.createdby != null" >
-        createdBy,
+        "createdBy",
       </if>
       <if test="record.modifydate != null" >
-        modifyDate,
+        "modifyDate",
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy,
+        "modifiedBy",
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="record.id != null" >
-        #{record.id,jdbcType=BIGINT},
+        #{record.id,jdbcType=DECIMAL},
       </if>
       <if test="record.hotelid != null" >
-        #{record.hotelid,jdbcType=BIGINT},
+        #{record.hotelid,jdbcType=DECIMAL},
       </if>
       <if test="record.featureid != null" >
-        #{record.featureid,jdbcType=BIGINT},
+        #{record.featureid,jdbcType=DECIMAL},
       </if>
       <if test="record.creationdate != null" >
         #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        #{record.createdby,jdbcType=BIGINT},
+        #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
         #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        #{record.modifiedby,jdbcType=BIGINT},
+        #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.itrip.pojo.ItripHotelFeature" >
-    update itrip_hotel_feature
+    update "itrip_hotel_feature"
     <set >
       <if test="record.hotelid != null" >
-        hotelId = #{record.hotelid,jdbcType=BIGINT},
+        "hotelId" = #{record.hotelid,jdbcType=DECIMAL},
       </if>
       <if test="record.featureid != null" >
-        featureId = #{record.featureid,jdbcType=BIGINT},
+        "featureId" = #{record.featureid,jdbcType=DECIMAL},
       </if>
       <if test="record.creationdate != null" >
-        creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
+        "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createdby != null" >
-        createdBy = #{record.createdby,jdbcType=BIGINT},
+        "createdBy" = #{record.createdby,jdbcType=DECIMAL},
       </if>
       <if test="record.modifydate != null" >
-        modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
+        "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.modifiedby != null" >
-        modifiedBy = #{record.modifiedby,jdbcType=BIGINT},
+        "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL},
       </if>
     </set>
-    where id = #{record.id,jdbcType=BIGINT}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.itrip.pojo.ItripHotelFeature" >
-    update itrip_hotel_feature
-    set hotelId = #{record.hotelid,jdbcType=BIGINT},
-      featureId = #{record.featureid,jdbcType=BIGINT},
-      creationDate = #{record.creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{record.createdby,jdbcType=BIGINT},
-      modifyDate = #{record.modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{record.modifiedby,jdbcType=BIGINT}
-    where id = #{record.id,jdbcType=BIGINT}
+    update "itrip_hotel_feature"
+    set "hotelId" = #{record.hotelid,jdbcType=DECIMAL},
+      "featureId" = #{record.featureid,jdbcType=DECIMAL},
+      "creationDate" = #{record.creationdate,jdbcType=TIMESTAMP},
+      "createdBy" = #{record.createdby,jdbcType=DECIMAL},
+      "modifyDate" = #{record.modifydate,jdbcType=TIMESTAMP},
+      "modifiedBy" = #{record.modifiedby,jdbcType=DECIMAL}
+    where "id" = #{record.id,jdbcType=DECIMAL}
   </update>
 </mapper>

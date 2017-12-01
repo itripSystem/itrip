@@ -25,6 +25,19 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- servlet-api -->
+		<dependency>   
+		   <groupId>javax.servlet</groupId>   
+		   <artifactId>servlet-api</artifactId>   
+		   <version>2.5</version>   
+		   <scope>provided</scope>   
+		</dependency>
+		<!-- aopalliance -->
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<!-- Spring核心包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
